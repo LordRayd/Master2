@@ -7,6 +7,7 @@ from subprocess import check_output
 import hashlib
 import textract
 import urllib.request
+from bs4 import BeautifulSoup
 # ------
 # uptime
 # -----
@@ -42,37 +43,45 @@ class Feed_Element:
         if  hasattr(post, 'link'):
             self.source_post = post.link
         try:
-            urllib.request.urlopen(post.link)
             self.local_url = './pages/' + post.link.replace('/','')
-            urllib.request.urlretrieve(post.link,  self.local_url)
+            #urllib.request.urlretrieve(post.link,  self.local_url)
+
+            ext = self.local_url.rsplit('.',1)[1]
+            if(ext == 'html') :
+                html = urllib.request.urlopen(post.link)
+                soup = BeautifulSoup(html)
+                f = open(self.local_url, "w")
+                f.write(str(soup.prettify()))
+                f.close()
+                #self.target_data = textract.process(self.local_url, encoding='ascii')
+            else : 
+                urllib.request.urlretrieve(post.link,  self.local_url)
         except urllib.error.HTTPError as e:
             self.target_data = None
         except urllib.error.URLError as e:
             self.target_data = None
-        else:
-            self.target_data = textract.process(self.local_url, encoding='ascii')
         if hasattr(feed, 'link'):
             self.source_feed = feed.link
 
     def affichage(self):
         if self.id != None:
-            print('id : ' + self.id + '\n')
+            print('id : ', self.id, '\n')
         if self.title != None:
-            print('title : ' + self.title + '\n')
+            print('title : ', self.title, '\n')
         if self.summary != None:
-            print('summary : ' + self.summary + '\n')
+            print('summary : ', self.summary, '\n')
         if self.description != None:
-            print('description : ' + self.description + '\n')
+            print('description : ', self.description, '\n')
         if self.source_post != None:
-            print('source_post : ' + self.source_post + '\n')
+            print('source_post : ', self.source_post, '\n')
         if self.source_feed != None:
-            print('source_feed : ' + self.source_feed + '\n')
+            print('source_feed : ', self.source_feed, '\n')
         if self.lang != None:
-            print('lang : ' + self.lang + '\n')
+            print('lang : ', self.lang, '\n')
         if self.date != None:
-            print('date : ' + self.date + '\n')
+            print('date : ', self.date, '\n')
         if self.target_data != None:
-            print('target_data : ' + self.target_data + '\n')
+            print('target_data : ', self.target_data, '\n')
     
 
 # --------------------
@@ -84,6 +93,7 @@ d = feedparser.parse("http://rss.cnn.com/rss/edition.rss")
 # print all posts
 count = 1
 blockcount = 1
+print('size = ', len(d.entries))
 for post in d.entries:
     if count % 5 == 1:
         print("\n" + time.strftime("%a, %b %d %I:%M %p") + '  ((( CNN - ' + str(blockcount) + ' )))')
@@ -91,6 +101,6 @@ for post in d.entries:
         blockcount += 1
     elem = Feed_Element()
     elem.initWithPost(post,d.feed)
-    #elem.affichage()
+    elem.affichage()
     count += 1
 # id = titre + description + url source + url dist + text distant
