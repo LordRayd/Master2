@@ -25,6 +25,7 @@ class Feed_Element:
     description = None
     source_post = None
     source_feed = None
+    local_url = None
     lang = None
     date = None
     target_data = None
@@ -42,12 +43,14 @@ class Feed_Element:
             self.source_post = post.link
         try:
             urllib.request.urlopen(post.link)
+            self.local_url = './pages/' + post.link.replace('/','')
+            urllib.request.urlretrieve(post.link,  self.local_url)
         except urllib.error.HTTPError as e:
             self.target_data = None
         except urllib.error.URLError as e:
             self.target_data = None
         else:
-            self.target_data = textract.process(post.link, encoding='ascii')
+            self.target_data = textract.process(self.local_url, encoding='ascii')
         if hasattr(feed, 'link'):
             self.source_feed = feed.link
 
@@ -88,6 +91,6 @@ for post in d.entries:
         blockcount += 1
     elem = Feed_Element()
     elem.initWithPost(post,d.feed)
-    elem.affichage()
+    #elem.affichage()
     count += 1
 # id = titre + description + url source + url dist + text distant
