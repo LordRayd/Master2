@@ -2,5 +2,5 @@
 
 ## Enseignant
     Frank Poirier
-## Ouverture Pdf
-Mot de passe : IM
+## Mot de passe
+Ouverture Pdf : IM
