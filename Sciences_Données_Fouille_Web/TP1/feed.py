@@ -8,6 +8,7 @@ import hashlib
 import textract
 import urllib.request
 from bs4 import BeautifulSoup
+import shelve
 # ------
 # uptime
 # -----
@@ -24,6 +25,7 @@ class Feed_Element:
     title = None
     summary = None
     description = None
+    all_links = None
     source_post = None
     source_feed = None
     local_url = None
@@ -32,34 +34,33 @@ class Feed_Element:
     target_data = None
 
     def initWithPost(self, post, feed):
+
         if  hasattr(post, 'title'):
             self.tile = post.title
             self.lang = langdetect.detect(post.title)
-            self.id = hashlib.sha224(post.title.encode(encoding='UTF-8')).hexdigest()
         if  hasattr(post, 'summary'):
             self.summary = post.summary
         if  hasattr(post, 'description'):
             self.description = post.description
         if  hasattr(post, 'link'):
             self.source_post = post.link
+            self.id = hashlib.sha224(post.link.encode(encoding='UTF-8')).hexdigest()
+        if hasattr(post, 'links'):
+            self.all_links = post.links
         try:
             self.local_url = './pages/' + post.link.replace('/','')
-            #urllib.request.urlretrieve(post.link,  self.local_url)
-
-            ext = self.local_url.rsplit('.',1)[1]
-            if(ext == 'html') :
-                html = urllib.request.urlopen(post.link)
-                soup = BeautifulSoup(html)
-                f = open(self.local_url, "w")
-                f.write(str(soup.prettify()))
-                f.close()
+            html = urllib.request.urlopen(post.link)
+            soup = BeautifulSoup(html)
+            f = open(self.local_url, "w")
+            f.write(str(soup.prettify()))
+            f.close()
                 #self.target_data = textract.process(self.local_url, encoding='ascii')
-            else : 
-                urllib.request.urlretrieve(post.link,  self.local_url)
         except urllib.error.HTTPError as e:
             self.target_data = None
+            self.local_url = None
         except urllib.error.URLError as e:
             self.target_data = None
+            self.local_url = None
         if hasattr(feed, 'link'):
             self.source_feed = feed.link
 
@@ -82,6 +83,26 @@ class Feed_Element:
             print('date : ', self.date, '\n')
         if self.target_data != None:
             print('target_data : ', self.target_data, '\n')
+        
+    def integrity(self):
+        integrity = ''
+        if self.title != None:
+            integrity += self.title
+        if self.summary != None:
+            integrity += self.summary
+        if self.description != None:
+            integrity += self.description
+        if self.target_data != None:
+            integrity += self.target_data
+        self.integrity = hashlib.sha224(integrity.encode(encoding='UTF-8')).hexdigest()
+
+    def save(self, database_name):
+        d = shelve.open(database_name, 'c')
+        if d.__contains__(self.id) == False:
+            d[self.id] = self
+        else : 
+            print('existe deja')
+        d.close()
     
 
 # --------------------
@@ -101,6 +122,7 @@ for post in d.entries:
         blockcount += 1
     elem = Feed_Element()
     elem.initWithPost(post,d.feed)
-    elem.affichage()
+    #elem.affichage()
+    elem.save('database')
     count += 1
 # id = titre + description + url source + url dist + text distant
