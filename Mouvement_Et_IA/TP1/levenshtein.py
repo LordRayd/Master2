@@ -12,7 +12,6 @@ def construction_matrice(word1,word2):
         M[i][0] = i
     for i in range(l1):
         M[0][i] = i
-    afficheMat(M)
     for i in range(1,l2):
         for j in range(1, l1):
             val = min( min(M[i-1][j-1]+1, M[i][j-1]+1), M[i-1][j]+1)
@@ -25,7 +24,7 @@ def choix_chemin(M,word1,word2):
     i = len(word2)
     j = len(word1)
     while i>0 or j>0 :
-        M[i][j] = 0
+        M[i][j] = '   X'
         if(word1[j-1] == word2[i-1]):
             i = i-1
             j = j-1
@@ -50,4 +49,5 @@ def lenvenshtein(word1, word2):
     M = choix_chemin(M,word1,word2)
     afficheMat(M)
 
-lenvenshtein('chien', 'neiger')
+lenvenshtein('acgt', 'acgt')
+lenvenshtein('chien','neige')
