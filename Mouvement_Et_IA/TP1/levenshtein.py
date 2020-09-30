@@ -14,9 +14,7 @@ def construction_matrice(word1,word2):
         M[0][i] = i
     afficheMat(M)
     for i in range(1,l2):
-        print('index i : ', i)
         for j in range(1, l1):
-            print('index j : ', j)
             val = min( min(M[i-1][j-1]+1, M[i][j-1]+1), M[i-1][j]+1)
             if(word1[j-1] == word2[i-1]):
                 val = min(val, M[i-1][j-1])
