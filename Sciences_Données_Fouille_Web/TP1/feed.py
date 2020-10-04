@@ -1,22 +1,24 @@
 #!/usr/bin/python3
 
+import hashlib
+import shelve
+import time
+import urllib.request
+from subprocess import check_output
+
 import feedparser
 import langdetect
-import time
-from subprocess import check_output
-import hashlib
-import textract
-import urllib.request
+import chardet
 from bs4 import BeautifulSoup
-import shelve
+
 # ------
 # uptime
 # -----
 
-uptime = check_output(['uptime'])
+#uptime = check_output(['uptime'])
 print("\n")
 print('-------------------------------------------------------------')
-print(uptime.strip())
+#print(uptime.strip())
 print('-------------------------------------------------------------')
 print("\n")
 
@@ -48,13 +50,21 @@ class Feed_Element:
         if hasattr(post, 'links'):
             self.all_links = post.links
         try:
-            self.local_url = './pages/' + post.link.replace('/','')
+            self.local_url = './pages/' + post.link.replace('/','').replace(':','')
             html = urllib.request.urlopen(post.link)
-            soup = BeautifulSoup(html)
-            f = open(self.local_url, "w")
-            f.write(str(soup.prettify()))
+            soup = BeautifulSoup(html, features="html.parser")
+            f = open(self.local_url, "w", encoding="utf-8")
+            self.target_data = str(soup.prettify())
+            f.write(self.target_data)
             f.close()
-                #self.target_data = textract.process(self.local_url, encoding='ascii')
+            #html = urllib.request.urlopen(post.link)
+            #soup = BeautifulSoup(html, features="html.parser", from_encoding="utf-8")
+            #self.target_data = str(soup.prettify())
+            #self.target_data = self.target_data.encode('utf-8')
+            #print(self.target_data)
+            #f = open(self.local_url, "w")
+            #f.write(self.target_data)
+            #f.close()
         except urllib.error.HTTPError as e:
             self.target_data = None
             self.local_url = None
@@ -114,6 +124,7 @@ d = feedparser.parse("http://rss.cnn.com/rss/edition.rss")
 # print all posts
 count = 1
 blockcount = 1
+ident = 0
 print('size = ', len(d.entries))
 for post in d.entries:
     if count % 5 == 1:
@@ -122,7 +133,10 @@ for post in d.entries:
         blockcount += 1
     elem = Feed_Element()
     elem.initWithPost(post,d.feed)
+    if(ident == 0):
+        ident = elem.id
+        print(ident)
     #elem.affichage()
-    elem.save('database')
+    #elem.save('database')
     count += 1
 # id = titre + description + url source + url dist + text distant
