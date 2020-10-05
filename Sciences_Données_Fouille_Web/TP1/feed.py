@@ -35,7 +35,7 @@ class Feed_Element:
     date = None
     target_data = None
 
-    def initWithPost(self, post, feed):
+    def initWithPost(self, post, feed, database_name='database'):
 
         if  hasattr(post, 'title'):
             self.tile = post.title
@@ -44,35 +44,27 @@ class Feed_Element:
             self.summary = post.summary
         if  hasattr(post, 'description'):
             self.description = post.description
+        if hasattr(post, 'links'):
+            self.all_links = post.links
+        if hasattr(feed, 'link'):
+            self.source_feed = feed.link
+        self.integrity()
         if  hasattr(post, 'link'):
             self.source_post = post.link
             self.id = hashlib.sha224(post.link.encode(encoding='UTF-8')).hexdigest()
-        if hasattr(post, 'links'):
-            self.all_links = post.links
-        try:
-            self.local_url = './pages/' + post.link.replace('/','').replace(':','')
-            html = urllib.request.urlopen(post.link)
-            soup = BeautifulSoup(html, features="html.parser")
-            f = open(self.local_url, "w", encoding="utf-8")
-            self.target_data = str(soup.prettify())
-            f.write(self.target_data)
-            f.close()
-            #html = urllib.request.urlopen(post.link)
-            #soup = BeautifulSoup(html, features="html.parser", from_encoding="utf-8")
-            #self.target_data = str(soup.prettify())
-            #self.target_data = self.target_data.encode('utf-8')
-            #print(self.target_data)
-            #f = open(self.local_url, "w")
-            #f.write(self.target_data)
-            #f.close()
-        except urllib.error.HTTPError as e:
-            self.target_data = None
-            self.local_url = None
-        except urllib.error.URLError as e:
-            self.target_data = None
-            self.local_url = None
-        if hasattr(feed, 'link'):
-            self.source_feed = feed.link
+            try:
+                self.local_url = './pages/' + post.link.replace('/','').replace(':','')
+                html = urllib.request.urlopen(post.link)
+                soup = BeautifulSoup(html, features="html.parser")
+                self.target_data = str(soup.prettify())
+                if self.checkIntegrity(database_name) == False :
+                    self.write_target_data_In_File()
+            except urllib.error.HTTPError as e:
+                self.target_data = None
+                self.local_url = None
+            except urllib.error.URLError as e:
+                self.target_data = None
+                self.local_url = None
 
     def affichage(self):
         if self.id != None:
@@ -93,7 +85,10 @@ class Feed_Element:
             print('date : ', self.date, '\n')
         if self.target_data != None:
             print('target_data : ', self.target_data, '\n')
-        
+    def write_target_data_In_File(self):
+        f = open(self.local_url, "w", encoding="utf-8")
+        f.write(self.target_data)
+        f.close()
     def integrity(self):
         integrity = ''
         if self.title != None:
@@ -111,8 +106,20 @@ class Feed_Element:
         if d.__contains__(self.id) == False:
             d[self.id] = self
         else : 
-            print('existe deja')
+            if self.integrity != d[self.id].integrity :
+                d[self.id] = self
         d.close()
+
+    def checkIntegrity(self, database_name):
+        ret = True
+        d = shelve.open(database_name, 'c')
+        if d.__contains__(self.id) == False:
+            ret = False
+        else : 
+            if self.integrity != d[self.id].integrity :
+                ret = False
+        d.close()
+        return ret
     
 
 # --------------------
@@ -124,7 +131,6 @@ d = feedparser.parse("http://rss.cnn.com/rss/edition.rss")
 # print all posts
 count = 1
 blockcount = 1
-ident = 0
 print('size = ', len(d.entries))
 for post in d.entries:
     if count % 5 == 1:
@@ -133,10 +139,5 @@ for post in d.entries:
         blockcount += 1
     elem = Feed_Element()
     elem.initWithPost(post,d.feed)
-    if(ident == 0):
-        ident = elem.id
-        print(ident)
-    #elem.affichage()
-    #elem.save('database')
+    elem.save('database')
     count += 1
-# id = titre + description + url source + url dist + text distant
