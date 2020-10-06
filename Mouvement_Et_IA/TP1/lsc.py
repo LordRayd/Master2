@@ -38,5 +38,7 @@ def lsc(word1, word2):
     print('la plus longue sous-séquence commune est : ',val)
     M2 = choix_chemin(M,word1,word2)
     afficheMat(M2)
+
+print('================= Plus longue chaine Sous Commune ========================')
 lsc('neige', 'chien')
 lsc('CATGT', 'ACGCTG')

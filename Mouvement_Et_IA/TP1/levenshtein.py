@@ -46,6 +46,7 @@ def choix_chemin(M,word1,word2):
                     j = j-1
                 else:
                     j=j-1
+    M[0][0] = '   X'
     return M
 
 def lenvenshtein(word1, word2):
@@ -55,4 +56,5 @@ def lenvenshtein(word1, word2):
     M = choix_chemin(M,word1,word2)
     afficheMat(M)
 
+print('================= Algorithme de Levenshtein ========================')
 lenvenshtein('ACGT', 'ACGT')
