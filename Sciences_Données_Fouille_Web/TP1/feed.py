@@ -52,11 +52,11 @@ class Item_RSS:
     """
     source_feed = None
     """"
-    
+    L url de la source du flux
     """
     local_url = None
     """"
-    
+    l url du fichier local contenant la page de l'item Rss
     """
     lang = None
     """
