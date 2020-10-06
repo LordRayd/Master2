@@ -22,21 +22,63 @@ print('-------------------------------------------------------------')
 print('-------------------------------------------------------------')
 print("\n")
 
-class Feed_Element:
+class Item_RSS:
+    """
+    Représente un item Rss obtenu depuis le flux 
+    """
     id = None
+    """"
+    
+    """
     title = None
+    """"
+    
+    """
     summary = None
+    """"
+    
+    """
     description = None
+    """"
+    
+    """
     all_links = None
+    """"
+    
+    """
     source_post = None
+    """"
+    
+    """
     source_feed = None
+    """"
+    
+    """
     local_url = None
+    """"
+    
+    """
     lang = None
+    """
+    La langue utilisé dans le texte de l'item Rss
+    """
     date = None
+    """"
+    La date de l'item Rss
+    """
     target_data = None
+    """"
+    Le contenu de la page source de l'item Rss
+    """
 
     def initWithPost(self, post, feed, database_name='database'):
+        """
+        Initialise l item rss a partir des données récupérés depuis le flux
 
+        Paramètres:
+            post : L'item Rss recupéré depuis le flux
+            feed : Les elements decrivants le flux
+        """
         if  hasattr(post, 'title'):
             self.tile = post.title
             self.lang = langdetect.detect(post.title)
@@ -67,6 +109,9 @@ class Feed_Element:
                 self.local_url = None
 
     def affichage(self):
+        """
+        Affiche tous les éléments de l'item Rss si ils ne sont pas vides
+        """
         if self.id != None:
             print('id : ', self.id, '\n')
         if self.title != None:
@@ -85,11 +130,19 @@ class Feed_Element:
             print('date : ', self.date, '\n')
         if self.target_data != None:
             print('target_data : ', self.target_data, '\n')
+
     def write_target_data_In_File(self):
+        """
+        Ecrit dans un fichier contenu à l'adresse local la page web qui est source de l'item Rss
+        """
         f = open(self.local_url, "w", encoding="utf-8")
         f.write(self.target_data)
         f.close()
+
     def integrity(self):
+        """
+        Calcul le hash qui déterminera si un element à changé au court du temps
+        """
         integrity = ''
         if self.title != None:
             integrity += self.title
@@ -102,6 +155,12 @@ class Feed_Element:
         self.integrity = hashlib.sha224(integrity.encode(encoding='UTF-8')).hexdigest()
 
     def save(self, database_name):
+        """"
+        Sauvegarde l'item Rss dans la base de données
+
+        Paramètres :
+            database_name : Le nom de la base de données dans laquelle sauvegarder l'item
+        """
         d = shelve.open(database_name, 'c')
         if d.__contains__(self.id) == False:
             d[self.id] = self
@@ -111,6 +170,14 @@ class Feed_Element:
         d.close()
 
     def checkIntegrity(self, database_name):
+        """"
+        Permet la vérification de l'exactitude des informations précédement enregistrer par rapport au données actuels
+
+        Paramètres :
+            database_name : Le nom de la base de données utilisé pour faire la vérification de l'intégrité
+        Retour :
+            Retourne Vrai si les données n'ont pas changé et Faux autrement
+        """
         ret = True
         d = shelve.open(database_name, 'c')
         if d.__contains__(self.id) == False:
@@ -137,7 +204,7 @@ for post in d.entries:
         print("\n" + time.strftime("%a, %b %d %I:%M %p") + '  ((( CNN - ' + str(blockcount) + ' )))')
         print("-----------------------------------------\n")
         blockcount += 1
-    elem = Feed_Element()
+    elem = Item_RSS()
     elem.initWithPost(post,d.feed)
     elem.save('database')
     count += 1
