@@ -59,7 +59,16 @@ def choix_chemin(M):
                 j=j-1
     M[0][0] = 'X'
     return M
-    
+
+def calc_sum(s1,s2) :
+    M = distance_eucli(s1,s2)
+    res = []
+    if len(M[0])-1 == len(M)-1 :
+        val = 0
+        for i in range(len(M)-1):
+            val = val + M[i][i]
+            res.append(val)
+    return np.asarray(res), val
 
 def dtw():
     print('================= Dynamique Time Warping ========================')
@@ -69,6 +78,7 @@ def dtw():
     fc12 = fileToList('./DATA_DTW/FC1_2.txt')
     res = mat_dist(fc11, fc12)
     print(res)
+    print(calc_sum(fc11,fc12))
     M_choix = choix_chemin(res)
     print(np.matrix(M_choix))
 
