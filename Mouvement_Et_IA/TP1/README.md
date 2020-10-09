@@ -1,8 +1,5 @@
 # TP 1 - LEVENSHTEIN
 ## Lancement
-Dans un terminal tapez: make
+Dans un terminal tapez: make et tous les fichiers se lanceront sucessivement
 ## Partie 1 - LCS
-
-## Partie 2 - LEVENSHTEIN
-
-## Partie 3 - DTW
+Algorithme en O(n)
