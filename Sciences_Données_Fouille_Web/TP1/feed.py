@@ -10,6 +10,7 @@ import feedparser
 import langdetect
 import chardet
 from bs4 import BeautifulSoup
+from elasticsearch import Elasticsearch
 
 # ------
 # uptime
@@ -192,7 +193,8 @@ class Item_RSS:
 # --------------------
 # CNN Collector (feedparser)
 # --------------------
-
+es = Elasticsearch()
+print(es.info())
 d = feedparser.parse("http://rss.cnn.com/rss/edition.rss")
 
 # print all posts
