@@ -1,5 +1,5 @@
 # TP 1 - LEVENSHTEIN
-Toutes les parties ont été faites séparement eet rassemblé dans le fichier TP1_Samuel_LEBERRE
+Toutes les parties ont été faites séparement et rassemblé dans le Jupyter Notebook TP1_Samuel_LEBERRE
 ## Lancement
 Dans un terminal tapez: make et tous les fichiers se lanceront sucessivement
 ## Partie 1 - LCS
