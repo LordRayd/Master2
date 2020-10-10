@@ -1,6 +1,9 @@
 # Feed Collector
-# Commande
+## Commandes
+### Génération de la documentation pydoc
+```
 pydoc -w feed
+```
 ## Liste des flux
 * http://www.france24.com/en/timeline/rss EN
 * http://rss.cnn.com/rss/edition_world.rss EN 
