@@ -190,6 +190,22 @@ class Item_RSS:
         return ret
     
 
+
+class Crawler:
+    nb_crawl_max = 10;
+
+    def __init__(self, nb_already=0):
+        self.nb_already_done = nb_already 
+
+    def crawl(link):
+        for post in d.entries:
+            elem = Item_RSS()
+            elem.initWithPost(post,d.feed)
+            for l in elem.all_links:
+                c = Crawler(self.nb_already_done + 1)
+                c.crawl(l)
+            elem.save('database')
+
 # --------------------
 # CNN Collector (feedparser)
 # --------------------
