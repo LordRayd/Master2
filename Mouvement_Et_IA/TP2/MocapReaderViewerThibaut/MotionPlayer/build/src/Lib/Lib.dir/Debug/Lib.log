@@ -1,0 +1,22 @@
+﻿La génération a démarré 13/10/2020 22:19:31.
+     1>Projet "D:\[prog]\[pw3d]\MotionEditing\build\src\Lib\Lib.vcxproj" sur le nœud 2 (Build cible(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw" /I"D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include" /nologo /W1 /WX- /O2 /Oy- /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Lib.dir\Debug\\" /Fd"D:/[prog]/[pw3d]/MotionEditing/lib/Debug/Lib.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\src\Lib\GUI.cpp ..\..\..\src\Lib\Application.cpp ..\..\..\src\Lib\Renderer.cpp ..\..\..\src\Lib\FontRenderer.cpp ..\..\..\src\Lib\AnimatedChain.cpp
+         GUI.cpp
+         Application.cpp
+         Renderer.cpp
+         FontRenderer.cpp
+         AnimatedChain.cpp
+         Génération de code en cours...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\Lib.exe /OUT:"D:\[prog]\[pw3d]\MotionEditing\lib\Debug\Lib.lib" /NOLOGO Lib.dir\Debug\GUI.obj
+         Lib.dir\Debug\Application.obj
+         Lib.dir\Debug\Renderer.obj
+         Lib.dir\Debug\FontRenderer.obj
+         Lib.dir\Debug\AnimatedChain.obj
+         Lib.vcxproj -> D:\[prog]\[pw3d]\MotionEditing\lib\Debug\Lib.lib
+     1>Génération du projet "D:\[prog]\[pw3d]\MotionEditing\build\src\Lib\Lib.vcxproj" terminée (Build cible(s)).
+
+La génération a réussi.
+
+Temps écoulé 00:00:03.93

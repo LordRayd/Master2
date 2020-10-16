@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{1D8AC1B2-9A3E-4015-BB49-84D8F307C974}</ProjectGUID>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>WinAppli_Editing</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v110</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\[prog]\[pw3d]\MotionEditing\bin\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WinAppli_Editing.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">WinAppli_Editing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\[prog]\[pw3d]\MotionEditing\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WinAppli_Editing.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">WinAppli_Editing</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <PreprocessorDefinitions>CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Debug</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:/[prog]/[pw3d]/MotionEditing/bin/Debug/WinAppli_Editing.pdb</ProgramDataBaseFileName>
+      <WarningLevel>EnableAllWarnings</WarningLevel>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>;..\..\..\lib\Debug\Lib.lib;..\..\..\thirdParty\win32\lib\glu32.lib;..\..\..\thirdParty\win32\lib\glew32.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDL.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDLmain.lib;..\..\..\thirdParty\win32\SDL\SDL_image\lib\SDL_image.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312_D.lib;..\..\..\thirdParty\AntTweakBar\lib\AntTweakBar.lib;..\..\..\lib\Debug\glfw.lib;..\..\..\lib\Debug\Lib.lib;..\..\..\thirdParty\win32\lib\glu32.lib;..\..\..\thirdParty\win32\lib\glew32.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDL.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDLmain.lib;..\..\..\thirdParty\win32\SDL\SDL_image\lib\SDL_image.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312_D.lib;..\..\..\thirdParty\AntTweakBar\lib\AntTweakBar.lib;..\..\..\lib\Debug\glfw.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>D:/[prog]/[pw3d]/MotionEditing/bin/Debug/WinAppli_Editing.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/[prog]/[pw3d]/MotionEditing/bin/Debug/WinAppli_Editing.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <PreprocessorDefinitions>CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AssemblerListingLocation>Release</AssemblerListingLocation>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ProgramDataBaseFileName>D:/[prog]/[pw3d]/MotionEditing/bin/Release/WinAppli_Editing.pdb</ProgramDataBaseFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:/[prog]/[pw3d]/MotionEditing/src/Lib;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_image/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/SDL/SDL_ttf-2.0.9/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glm-0.8.4.3;D:/[prog]/[pw3d]/MotionEditing/thirdParty/win32/freetype-2.3.12/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/AntTweakBar/include;D:/[prog]/[pw3d]/MotionEditing/thirdParty/glfw;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>;..\..\..\lib\Release\Lib.lib;..\..\..\thirdParty\win32\lib\glu32.lib;..\..\..\thirdParty\win32\lib\glew32.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDL.lib;..\..\..\thirdParty\win32\SDL\SDL\lib\SDLmain.lib;..\..\..\thirdParty\win32\SDL\SDL_image\lib\SDL_image.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312.lib;..\..\..\thirdParty\win32\freetype-2.3.12\lib\freetype2312_D.lib;..\..\..\thirdParty\AntTweakBar\lib\AntTweakBar.lib;..\..\..\lib\Release\glfw.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <ImportLibrary>D:/[prog]/[pw3d]/MotionEditing/bin/Release/WinAppli_Editing.lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/[prog]/[pw3d]/MotionEditing/bin/Release/WinAppli_Editing.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+      <Version>
+      </Version>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\WinApp\AppliEditing.h" />
+    <ClCompile Include="..\..\..\src\WinApp\Main.cpp" />
+    <ClCompile Include="..\..\..\src\WinApp\AppliEditing.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:/[prog]/[pw3d]/MotionEditing/build/src/Lib/Lib.vcxproj">
+      <Project>CFCF691E-B6C9-4760-BDFF-9E802E34082C</Project>
+    </ProjectReference>
+    <ProjectReference Include="D:/[prog]/[pw3d]/MotionEditing/build/thirdParty/glfw/glfw.vcxproj">
+      <Project>33C57772-A44A-4BC5-AE08-20E6A965323B</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

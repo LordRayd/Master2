@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\WinSkeletonTuner\Main.cpp">
+      <Filter>WinSkeletonTuner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\WinSkeletonTuner\AppliEditing.cpp">
+      <Filter>WinSkeletonTuner</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\WinSkeletonTuner\SkeletonTuner.cpp">
+      <Filter>Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\src\WinSkeletonTuner\SkeletonTunerApp.cpp">
+      <Filter>WinSkeletonTuner</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\WinSkeletonTuner\AppliEditing.h">
+      <Filter>WinSkeletonTuner</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\WinSkeletonTuner\SkeletonTuner.h">
+      <Filter>Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\WinSkeletonTuner\SkeletonTunerApp.h">
+      <Filter>WinSkeletonTuner</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="WinSkeletonTuner">
+      <UniqueIdentifier>{A663636B-F5BA-4446-AF97-60A1ED9B36CA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{F375DB3C-84BB-46FA-8FD9-D928A2682B95}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
