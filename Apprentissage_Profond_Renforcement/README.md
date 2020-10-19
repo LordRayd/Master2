@@ -2,3 +2,5 @@
 ## Enseignant
 Nicolas Courty
 ## Controle
+## Notes Cours
+### 19/10/20
