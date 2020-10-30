@@ -12,67 +12,31 @@ import chardet
 from bs4 import BeautifulSoup
 from elasticsearch import Elasticsearch
 
-# ------
-# uptime
-# -----
-
-#uptime = check_output(['uptime'])
-print("\n")
-print('-------------------------------------------------------------')
-#print(uptime.strip())
-print('-------------------------------------------------------------')
-print("\n")
-
 class Item_RSS:
     """
     Représente un item Rss obtenu depuis le flux 
+
+    source_feed : L url de la source du flux
+    local_url : L url du fichier local contenant la page de l'item Rss
+    lang : La langue utilisé dans le texte de l'item Rss
+    date : La date de l'item Rss
+    target_data : Le contenu de la page source de l'item Rss
+    bool_write_file : Ecrit dans des fichiers les pages des liens RSS si VRAI
     """
     id = None
-    """"
-    
-    """
     title = None
-    """"
-    
-    """
     summary = None
-    """"
-    
-    """
     description = None
-    """"
-    
-    """
     all_links = None
-    """"
-    
-    """
     source_post = None
-    """"
-    
-    """
     source_feed = None
-    """"
-    L url de la source du flux
-    """
     local_url = None
-    """"
-    l url du fichier local contenant la page de l'item Rss
-    """
     lang = None
-    """
-    La langue utilisé dans le texte de l'item Rss
-    """
     date = None
-    """"
-    La date de l'item Rss
-    """
     target_data = None
-    """"
-    Le contenu de la page source de l'item Rss
-    """
+    bool_write_file = None
 
-    def initWithPost(self, post, feed, database_name='database'):
+    def __init__(self, post, feed, write_file=False, database_name='database'):
         """
         Initialise l item rss a partir des données récupérés depuis le flux
 
@@ -91,7 +55,7 @@ class Item_RSS:
             self.all_links = post.links
         if hasattr(feed, 'link'):
             self.source_feed = feed.link
-        self.integrity()
+        self.integrity_construct()
         if  hasattr(post, 'link'):
             self.source_post = post.link
             self.id = hashlib.sha224(post.link.encode(encoding='UTF-8')).hexdigest()
@@ -100,7 +64,7 @@ class Item_RSS:
                 html = urllib.request.urlopen(post.link)
                 soup = BeautifulSoup(html, features="html.parser")
                 self.target_data = str(soup.prettify())
-                if self.checkIntegrity(database_name) == False :
+                if self.checkIntegrity(database_name) == False and self.bool_write_file != False:
                     self.write_target_data_In_File()
             except urllib.error.HTTPError as e:
                 self.target_data = None
@@ -140,7 +104,7 @@ class Item_RSS:
         f.write(self.target_data)
         f.close()
 
-    def integrity(self):
+    def integrity_construct(self):
         """
         Calcul le hash qui déterminera si un element à changé au court du temps
         """
@@ -155,7 +119,7 @@ class Item_RSS:
             integrity += self.target_data
         self.integrity = hashlib.sha224(integrity.encode(encoding='UTF-8')).hexdigest()
 
-    def save(self, database_name):
+    def save_database(self, database_name):
         """"
         Sauvegarde l'item Rss dans la base de données
 
@@ -188,41 +152,23 @@ class Item_RSS:
                 ret = False
         d.close()
         return ret
-    
-
 
 class Crawler:
-    nb_crawl_max = 10;
+    nb_crawl_max = 3
 
     def __init__(self, nb_already=0):
         self.nb_already_done = nb_already 
 
-    def crawl(link):
-        for post in d.entries:
-            elem = Item_RSS()
-            elem.initWithPost(post,d.feed)
-            for l in elem.all_links:
-                c = Crawler(self.nb_already_done + 1)
-                c.crawl(l)
-            elem.save('database')
+    def crawl(self, _link):
+        if(self.nb_already_done < self.nb_crawl_max):
+            d = feedparser.parse('%s' % _link)
+            for post in d.entries:
+                elem = Item_RSS(post,d.feed)
+                for l in elem.all_links:
+                    print(l['href'])
+                    c = Crawler(self.nb_already_done + 1)
+                    c.crawl(l['href'])
+                elem.save_database('database')
 
-# --------------------
-# CNN Collector (feedparser)
-# --------------------
-es = Elasticsearch()
-print(es.info())
-d = feedparser.parse("http://rss.cnn.com/rss/edition.rss")
-
-# print all posts
-count = 1
-blockcount = 1
-print('size = ', len(d.entries))
-for post in d.entries:
-    if count % 5 == 1:
-        print("\n" + time.strftime("%a, %b %d %I:%M %p") + '  ((( CNN - ' + str(blockcount) + ' )))')
-        print("-----------------------------------------\n")
-        blockcount += 1
-    elem = Item_RSS()
-    elem.initWithPost(post,d.feed)
-    elem.save('database')
-    count += 1
+cr = Crawler()
+cr.crawl("http://rss.cnn.com/rss/edition.rss")
