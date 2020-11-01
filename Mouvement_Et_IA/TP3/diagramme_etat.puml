@@ -1,0 +1,32 @@
+@startuml systeme
+    state Etat {
+        [*] --> Normal : 0.6
+        [*] --> Confinement : 0.1
+        [*] --> Vacances : 0.3
+        
+        Normal -[#blue]> Normal : 0.8
+        Normal -[#blue]> Confinement : 0.1
+        Normal -[#blue]> Vacances : 0.1
+
+        Confinement -[#red]> Normal : 0.3
+        Confinement -[#red]> Confinement : 0.6
+        Confinement -[#red]> Vacances : 0.1
+
+        Vacances -[#green]> Normal : 0.5
+        Vacances -[#green]> Confinement : 0.1
+        Vacances -[#green]> Vacances : 0.4
+    }
+    state Action {
+        Normal -down[#blue]-> FaireDesCourses  : 0.3
+        Normal -down[#blue]-> Dormir : 0.4
+        Normal -down[#blue]-> Sport : 0.3
+
+        Confinement -down[#red]-> FaireDesCourses : 0.4
+        Confinement -down[#red]-> Dormir : 0.4
+        Confinement -down[#red]-> Sport : 0.2
+
+        Vacances -down[#green]-> FaireDesCourses : 0.2
+        Vacances -down[#green]-> Dormir : 0.7
+        Vacances -down[#green]-> Sport : 0.1
+    }
+@enduml
