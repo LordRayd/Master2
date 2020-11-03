@@ -1,9 +1,9 @@
 # Master2 - Applications Interactives et Données Numériques
-Ce master est spécialisé dans l'utilasation de la 3D et des algorithmes de prédictions
+    Ce master est spécialisé dans l'utilasation de la 3D et des algorithmes de prédictions
 ## Auteur
-Samuel LE BERRE
+    Samuel LE BERRE
 ## Année
-2020 - 2021
+    2020 - 2021
 ## Matières
 * Apprentissage Profond par Renforcement
 * Interaction Mobile
