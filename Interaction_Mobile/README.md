@@ -13,3 +13,8 @@ Il développe les points suivants :
 * Méthodes de l'intelligence artificielle et de l'apprentissage automatique pour le traitement automatique du langage naturel
 * Conception d'assistants virtuels textuel ou vocal
 * Conception d'interaction persuasive
+
+## Projet Chatbot
+2 cas d'utilisation :
+* Prise de rendez-vous
+* 
