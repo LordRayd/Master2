@@ -7,7 +7,7 @@ Dans le result ça fait un tableau de 18 et des poussière tableau 3d de 3 * 3 *
 
 
 ## Meilleur Algo
-### 1 
+### 1 - Overall Accuracy = 99.99, Kappa = 1.000, epoch=20
 ```
 Layer (type)                 Output Shape              Param #   
 =================================================================
@@ -31,10 +31,12 @@ dense_3 (Dense)              (None, 10)                1290
 =================================================================
 Total params: 359,946
 Trainable params: 359,946
-Non-trainable params: 0`
+Non-trainable params: 0
 ```
 
-### 2 
+### 2 - Overall Accuracy = 99.99, Kappa = 1.000, patch de 32*32, epoch=156
+Batchs de 24 car perte d'infos avec des patchs trop grands<br>
+PCA afin de garder 17 spectres
 ```
 Layer (type)                 Output Shape              Param #   
 =================================================================
