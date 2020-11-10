@@ -183,7 +183,7 @@ Minsky & Papert
 #### Enoncé
 Quel est le sigle du type de réseau de neurones qui permet de prendre en compte le contexte plus ou moins proche de l'entrée présentée au réseau (1 mot) ?
 #### Réponse
-HMM
+HMM ???
 ### Question 14
 #### Enoncé
 Comment s'appelle ce qui n'est pas dit ou écrit explicitement mais qu'on considère comme une connaissance connue de l'interlocuteur qui permet de comprendre l'énoncé (un mot) ?
