@@ -20,6 +20,9 @@ Il développe les points suivants :
 * Chosir une bouteille chez un caviste
 
 ## Resume Cours
+### Definition
+    Phonème : Élément sonore du langage parlé, considéré comme une unité distinctive
+    
 ### Domaines TALN:
     Reconnaissance Automatique de la Parole (ASR)
     Synthèse de la Parole à partir du Texte (TTS)
