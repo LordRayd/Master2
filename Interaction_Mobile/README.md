@@ -117,3 +117,91 @@ Il développe les points suivants :
 applications: traitement documentaire, production de document, interfaces naturelles
 
 1956: naissance IA (John Mc Carthy, MarvinMinsky, Allan Newell, Herbert Simon)
+
+## QCM
+### Question 1
+#### Enoncé
+Quelle est la catégorie de réseaux de neurones qui par son architecture est particulièrement adaptée à traiter un signal temporel comme la parole (un mot) ?
+#### Réponse
+Recurrent Neural Network
+### Question 2
+#### Enoncé
+En linguistique, comment désigne-t-on la la forme matérielle d'un signe (un mot) ?
+#### Réponse
+Phonème
+### Question 3
+#### Enoncé
+En linguistique, comment désigne-t-on la représentation mentale d'un concept (un mot) ?
+#### Réponse
+Phonème
+### Question 4
+#### Enoncé
+Un réseau de neurones de type perceptron multicouche avec une seule couche cachée peut apprendre n'importe quelle frontière de séparation entre deux classes.
+#### Réponse
+Vrai
+### Question 5
+#### Enoncé
+Quelle est la fonction du langage qui permet de s'assurer que l'échange se passe bien entre deux locuteurs ?
+#### Réponse
+fonction phatique
+### Question 6
+#### Enoncé
+En linguistique, à quel type correspond une grammaire formelle non contextuelle ?
+#### Réponse
+Type 2
+### Question 7
+#### Enoncé
+Combien y a-t-il de phonèmes en français ?
+#### Réponse
+De l'ordre de 35
+### Question 8
+#### Enoncé
+Un acte de langage est associé à 3 forces. Comment appelle-t-on la force qui correspond au sens d’un acte (un mot) ?
+#### Réponse
+Illocutoire
+### Question 9
+#### Enoncé
+Quel est le nom du théorème sur lequel repose les approches statistiques de reconnaissance d'un signal (1 mot) ?
+#### Réponse
+HMM ?????
+### Question 10
+#### Enoncé
+Quel est le nom de la métrique utilisée pour évaluer la performance d'un système de reconnaissance de parole (3 mots en anglais) ?
+#### Réponse
+Word Error Rate
+### Question 11
+#### Enoncé
+Comment appelle-t-on la structure de données utilisée en intelligence artificielle qui permet de représenter une connaissance ou une situation stéréotypée (un mot) ?
+#### Réponse
+Cadre ??? ou Vecteur ???
+### Question 12
+#### Enoncé
+Quels sont les deux auteurs du livre qui a mis fin à la première époque des réseaux de neurones (2 noms) ?
+#### Réponse
+Minsky & Papert
+### Question 13
+#### Enoncé
+Quel est le sigle du type de réseau de neurones qui permet de prendre en compte le contexte plus ou moins proche de l'entrée présentée au réseau (1 mot) ?
+#### Réponse
+HMM
+### Question 14
+#### Enoncé
+Comment s'appelle ce qui n'est pas dit ou écrit explicitement mais qu'on considère comme une connaissance connue de l'interlocuteur qui permet de comprendre l'énoncé (un mot) ?
+#### Réponse
+Contexte
+### Question 15
+#### Enoncé
+Qui a proposé la première règle d'apprentissage entre des neurones (1 mot) ?
+#### Réponse
+Hebb
+### Question 16 - Troll
+#### Enoncé
+Qui a écrit la chanson qui comprend les phrases suivantes :
+```
+Je te promets mes yeux si tu ne peux plus voir
+J'te promets d'être heureux si tu n'as plus d'espoir
+```
+#### Réponse
+* Julien Doré
+* Alexy
+* Jean-Jacques Goldman	
