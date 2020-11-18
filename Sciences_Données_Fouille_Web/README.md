@@ -2,10 +2,21 @@
 ## Enseignant
 Pierre-François Marteau
 ## Setup
+Utilisé le plugin *ElasticSearch Head* sur google chrome pour avoir une vue des index
 ## Proxy et Pip
-Dans un terminale taper : <br>
-* export https_proxy=https://squidva.univ-ubs.fr:3128/
-* export http_proxy=http://squidva.univ-ubs.fr:3128/
+A la fac il faut modifier le proxy pour que les pip marchent
+### Temporaire
+Dans un terminale taper : 
+```
+export https_proxy=https://squidva.univ-ubs.fr:3128/
+export http_proxy=http://squidva.univ-ubs.fr:3128/
+```
+### Permanent
+Mettre a la fin du *~/.bashrc* les lignes : 
+```
+export https_proxy=https://squidva.univ-ubs.fr:3128/
+export http_proxy=http://squidva.univ-ubs.fr:3128/
+```
 ## Controle
 ## Exercice Lyme
 ```
