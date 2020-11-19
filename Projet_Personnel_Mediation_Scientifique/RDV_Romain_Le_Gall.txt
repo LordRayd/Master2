@@ -5,7 +5,7 @@ Locmariquer a Arzon
     sondeur bathymétrique
     leadar aerien
     laser aeroporter
-    -> terrestre, bien immmergé et peu emmerger
+    -> terrestre, bien immmergé et peu immerger
 Voir avec David Menier pour les données 100 ans 
 
 bdalty couvre tout le 56
