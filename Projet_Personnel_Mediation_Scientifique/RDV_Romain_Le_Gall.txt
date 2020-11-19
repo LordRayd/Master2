@@ -1,0 +1,19 @@
+Golfe du morbihan
+Locmariquer a Arzon
+    Geolocaliser : Pas de 1m
+5 a 10 ans de données
+    sondeur bathymétrique
+    leadar aerien
+    laser aeroporter
+    -> terrestre, bien immmergé et peu emmerger
+Voir avec David Menier pour les données 100 ans 
+
+bdalty couvre tout le 56
+
+lamber93 coord spécifique
+
+point coord 0 en z
+    ign69 -> terrestre
+    0 terrestre classique
+
+Lamber93 point origin situé en France
