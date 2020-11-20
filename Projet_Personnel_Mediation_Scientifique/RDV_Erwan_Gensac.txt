@@ -1,0 +1,31 @@
+REUNION DU 20/11/20
+L'utilisateur dispose d'unun smartphone avec l'application.
+L'utilisateur se balladant à "Moustérian"reçoit une notification sur ce lieu et veut plus d'informations.
+
+Cliquer sur la notification
+    Affiche la page d'informations du lieu
+        Le titre du lieu
+                                                Bouton menant vers la zone de la carte du site (zoom de la carte générale) / Un point sur la carte du golfe
+        Une galerie de photo
+        
+                                                montrant les niveaux bathymétrique / prédiction du niveau bathymétrique dans les années suivantes
+                                                    Courbe évolutive dans le temps
+                                                        partage des resultats de la courbe
+        Vous serez sous l'eau dans : XX* années , * : peut-être que oui peut-être que non.
+        Comment me rendre au lieu ? (redirection vers Maps)
+        Informations importantes et attractive sur pourquoi étudier ce lieu
+        Lien vers lieu similaire et proche
+            - va sur la page d'info de l'autre
+            - affiche sur la carte
+        Lien de partage reseaux sociaux
+        (lien vers d'autres articles)
+
+
+Ouverture de l'application
+    Affichage de la carte avec la position géolocalisé et points d'intéret à proximité
+    
+    Cliquer sur le points d'interets
+        Petite bulle info simple (nom du lieu, petite photos ou icons : plage, marqueur)
+        Si on clique sur la bulle on arrive sur la page d'informations du lieu
+    
+

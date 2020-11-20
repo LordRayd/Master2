@@ -17,3 +17,22 @@ point coord 0 en z
     0 terrestre classique
 
 Lamber93 point origin situé en France
+
+
+----- Samuel (Sa mue, elle . . . ) -----
+ROMAIN LE GALL Ingénieur SIG (Systeme d'information géographique)
+
+Litto3D :
+Le produit Litto3D® est une base de données altimétrique unique 
+et continue terre-mer donnant une représentation tridimensionnelle 
+de la forme et de la position du sol sur la frange littorale du territoire français.
+
+LiDAR :
+Technique basée sur l’émission d’impulsions d’ondes lumineuses à partir 
+d’un laser aéroporté. Elle permet de mesurer des profondeurs d’eau et les formes du terrain.
+
+Modèle numérique de Terrain (MNT) :
+Il s'agit d'une représentation numérique du relief donc des valeurs d'altitude d'une zone donnée.
+
+Format des données :
+Coordonnées XYZ en Lambert93
