@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module elastic_tool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>elastic_tool</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Ccours%5Cmaster2%5Csciences_donn%C3%A9es_fouille_web%5Celastic_tool.py">d:\cours\master2\sciences_données_fouille_web\elastic_tool.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="elastic_tool.html#ElasticTool">ElasticTool</a>
+</font></dt><dt><font face="helvetica, arial"><a href="elastic_tool.html#ElasticToolv0">ElasticToolv0</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ElasticTool">class <strong>ElasticTool</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ElasticTool-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="ElasticTool-add_all_index"><strong>add_all_index</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticTool-add_index"><strong>add_index</strong></a>(self, name_index)</dt></dl>
+
+<dl><dt><a name="ElasticTool-affichage_etat"><strong>affichage_etat</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticTool-delete_all_index"><strong>delete_all_index</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticTool-delete_index"><strong>delete_index</strong></a>(self, name_index)</dt></dl>
+
+<dl><dt><a name="ElasticTool-getConnection"><strong>getConnection</strong></a>(self, _host='localhost', _port=9200)</dt></dl>
+
+<dl><dt><a name="ElasticTool-get_all_from_index"><strong>get_all_from_index</strong></a>(self, index_name, size_result=999)</dt></dl>
+
+<dl><dt><a name="ElasticTool-insertion_all_items"><strong>insertion_all_items</strong></a>(self, _items)</dt></dl>
+
+<dl><dt><a name="ElasticTool-insertion_item"><strong>insertion_item</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_all_links"><strong>save_all_links</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_date"><strong>save_date</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_description"><strong>save_description</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_integrity"><strong>save_integrity</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_item"><strong>save_item</strong></a>(self, _id, _title, _summary, _description, _all_links, _source_post, _lang, _date, _target_data, _integrity, _type_flux, _type_predit)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_lang"><strong>save_lang</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_link"><strong>save_link</strong></a>(self, _link, _id)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_source_post"><strong>save_source_post</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_summary"><strong>save_summary</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_target_data"><strong>save_target_data</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_title"><strong>save_title</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_type_flux"><strong>save_type_flux</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-save_type_predit"><strong>save_type_predit</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticTool-search_by_tags"><strong>search_by_tags</strong></a>(self, index_name, tags, size_result=999)</dt></dl>
+
+<dl><dt><a name="ElasticTool-verification_integrity"><strong>verification_integrity</strong></a>(self, id_, integrity_)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ElasticToolv0">class <strong>ElasticToolv0</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#==================================&nbsp;Version&nbsp;avec&nbsp;tout&nbsp;dans&nbsp;1&nbsp;index&nbsp;===============================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ElasticToolv0-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+
+<dl><dt><a name="ElasticToolv0-add_index"><strong>add_index</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticToolv0-affichage_etat"><strong>affichage_etat</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticToolv0-delete_index"><strong>delete_index</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ElasticToolv0-getConnection"><strong>getConnection</strong></a>(self, _host='localhost', _port=9200)</dt></dl>
+
+<dl><dt><a name="ElasticToolv0-insertion_item"><strong>insertion_item</strong></a>(self, _item)</dt></dl>
+
+<dl><dt><a name="ElasticToolv0-search_by_tags"><strong>search_by_tags</strong></a>(self, tags, size_result=999)</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

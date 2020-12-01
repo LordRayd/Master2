@@ -30,3 +30,5 @@ Ils montrent que les représentation ascendante de détection et d'association m
 
 #### Détection et association simultanné
 * L'image est analysé par un CNN qui genere une liste de features qui est l'entrée de la première étape. Durant la première étape le résau produit un ensemble de champs d'affinité des membres.
+À chaque étape suivante, les prédictions de l'étape précédente et les caractéristiques de l'image d'origine sont concaténées et utilisées pour produire des prédictions affinées.
+Après avoir itérations sur le nombre total d'étape PAF, le processus est répété pour la détection des cartes de confiance, en commençant par la prédiction PAF la plus mise à jour.
