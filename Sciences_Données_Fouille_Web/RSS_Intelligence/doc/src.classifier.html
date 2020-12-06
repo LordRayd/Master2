@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.classifier</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.classifier</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Ccours%5Cmaster2%5Csciences_donn%C3%A9es_fouille_web%5Crss_intelligence%5Csrc%5Cclassifier.py">d:\cours\master2\sciences_données_fouille_web\rss_intelligence\src\classifier.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.classifier.html#Classifier">Classifier</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Classifier">class <strong>Classifier</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Classifier">Classifier</a>(lang='fr')<br>
+&nbsp;<br>
+Attributs:<br>
+&nbsp;<br>
+dataset&nbsp;:&nbsp;Le&nbsp;dataset&nbsp;utilisé&nbsp;pour&nbsp;entrainer&nbsp;et&nbsp;tester&nbsp;les&nbsp;modeles<br>
+model_knn&nbsp;:&nbsp;le&nbsp;modele&nbsp;du&nbsp;plus&nbsp;proche&nbsp;voisin<br>
+model_reg_log&nbsp;:&nbsp;le&nbsp;modele&nbsp;de&nbsp;regression&nbsp;logistique<br>
+model_bayesien&nbsp;:&nbsp;le&nbsp;modele&nbsp;du&nbsp;bayesien&nbsp;naif<br>
+model_svm&nbsp;:&nbsp;le&nbsp;modele&nbsp;svm<br>
+model_random_forest&nbsp;:&nbsp;le&nbsp;modele&nbsp;ranndom&nbsp;forest<br>
+model_neural&nbsp;:&nbsp;le&nbsp;modele&nbsp;de&nbsp;reseau&nbsp;de&nbsp;neurone<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Classifier-__init__"><strong>__init__</strong></a>(self, lang='fr')</dt><dd><tt>Initialiseur&nbsp;de&nbsp;l'objet&nbsp;<a href="#Classifier">Classifier</a><br>
+&nbsp;<br>
+Paramètres&nbsp;:<br>
+lang='fr'&nbsp;:&nbsp;Choix&nbsp;de&nbsp;la&nbsp;langue&nbsp;du&nbsp;<a href="#Classifier">Classifier</a></tt></dd></dl>
+
+<dl><dt><a name="Classifier-affiche_resultat_score"><strong>affiche_resultat_score</strong></a>(self, score)</dt><dd><tt>Affiche&nbsp;les&nbsp;resultats&nbsp;obtenu&nbsp;par&nbsp;uun&nbsp;model<br>
+&nbsp;<br>
+Paramètres:<br>
+score&nbsp;:&nbsp;Le&nbsp;score&nbsp;a&nbsp;affiché</tt></dd></dl>
+
+<dl><dt><a name="Classifier-all_classification"><strong>all_classification</strong></a>(self, save_model=False)</dt><dd><tt>Execute&nbsp;toute&nbsp;les&nbsp;classifications&nbsp;les&nbsp;unes&nbsp;a&nbsp;la&nbsp;suite&nbsp;des&nbsp;autres<br>
+&nbsp;<br>
+Paramètres:<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-bayesien"><strong>bayesien</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;bayesien&nbsp;naif<br>
+&nbsp;<br>
+Paramètres<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-create_dataset"><strong>create_dataset</strong></a>(self, tool=0, save_dataset=False)</dt><dd><tt>Crée&nbsp;un&nbsp;nouveau&nbsp;Dataset<br>
+&nbsp;<br>
+Paramètres:<br>
+tool=0&nbsp;:&nbsp;Quel&nbsp;outil&nbsp;va&nbsp;ton&nbsp;utiliser&nbsp;pour&nbsp;la&nbsp;recupération&nbsp;des&nbsp;informations<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;DatabaseTool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;ElasticTool<br>
+save_dataset=False&nbsp;:&nbsp;si&nbsp;on&nbsp;doit&nbsp;ou&nbsp;non&nbsp;sauvegarder&nbsp;le&nbsp;dataset&nbsp;dans&nbsp;les&nbsp;fichiers</tt></dd></dl>
+
+<dl><dt><a name="Classifier-knn"><strong>knn</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;k&nbsp;plus&nbsp;proche&nbsp;voisin<br>
+&nbsp;<br>
+Paramètres<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-load_all_model"><strong>load_all_model</strong></a>(self, lang='fr', default_path_file='model/')</dt><dd><tt>Recharge&nbsp;tous&nbsp;les&nbsp;modeles&nbsp;depuis&nbsp;les&nbsp;fichiers</tt></dd></dl>
+
+<dl><dt><a name="Classifier-load_dataset"><strong>load_dataset</strong></a>(self, lang='fr')</dt><dd><tt>Recharge&nbsp;un&nbsp;dataset&nbsp;depuis&nbsp;les&nbsp;fichiers<br>
+&nbsp;<br>
+Paramètres:<br>
+lang&nbsp;:&nbsp;la&nbsp;langue&nbsp;du&nbsp;dataset&nbsp;a&nbsp;chargé</tt></dd></dl>
+
+<dl><dt><a name="Classifier-load_model"><strong>load_model</strong></a>(self, model_name, lang='fr', default_path_file='model/')</dt><dd><tt>Recharge&nbsp;un&nbsp;model&nbsp;depuis&nbsp;les&nbsp;fichiers<br>
+&nbsp;<br>
+Paramètres:<br>
+model_name&nbsp;:&nbsp;le&nbsp;nom&nbsp;du&nbsp;modele&nbsp;a&nbsp;recharger<br>
+lang&nbsp;:&nbsp;la&nbsp;langue&nbsp;du&nbsp;modele<br>
+default_path_file&nbsp;:&nbsp;le&nbsp;chemin&nbsp;par&nbsp;default&nbsp;ou&nbsp;est&nbsp;stockés&nbsp;le&nbsp;modele</tt></dd></dl>
+
+<dl><dt><a name="Classifier-neural"><strong>neural</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;reseau&nbsp;de&nbsp;neurone<br>
+&nbsp;<br>
+Paramètres<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-predict"><strong>predict</strong></a>(self, texte_xml)</dt><dd><tt>Predit&nbsp;la&nbsp;classe/label&nbsp;d'un&nbsp;texte&nbsp;xml&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte_xml&nbsp;:&nbsp;Le&nbsp;texte&nbsp;dont&nbsp;on&nbsp;souhaite&nbsp;connaitre&nbsp;le&nbsp;label<br>
+&nbsp;<br>
+Retourne&nbsp;le&nbsp;label</tt></dd></dl>
+
+<dl><dt><a name="Classifier-random_forest"><strong>random_forest</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;Random&nbsp;Forest<br>
+&nbsp;<br>
+Paramètres:<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-reg_log"><strong>reg_log</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;regression&nbsp;logistique<br>
+&nbsp;<br>
+Paramètres<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<dl><dt><a name="Classifier-save_model"><strong>save_model</strong></a>(self, model, model_name, lang='fr', default_path_file='model/')</dt><dd><tt>Sauvegarde&nbsp;le&nbsp;model&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+model&nbsp;:&nbsp;le&nbsp;modele&nbsp;a&nbsp;sauvegarder<br>
+model_name&nbsp;:&nbsp;le&nbsp;nom&nbsp;du&nbsp;modele&nbsp;a&nbsp;sauvegarder<br>
+lang&nbsp;:&nbsp;la&nbsp;langue&nbsp;du&nbsp;modele<br>
+default_path_file&nbsp;:&nbsp;le&nbsp;chemin&nbsp;par&nbsp;default&nbsp;ou&nbsp;sera&nbsp;stockés&nbsp;le&nbsp;modele</tt></dd></dl>
+
+<dl><dt><a name="Classifier-svm"><strong>svm</strong></a>(self, save_model=False)</dt><dd><tt>Utilisation&nbsp;du&nbsp;classifieur&nbsp;SVM<br>
+&nbsp;<br>
+Paramètres<br>
+save_model=False&nbsp;:&nbsp;Sauvegarde&nbsp;le&nbsp;model&nbsp;pour&nbsp;qu'il&nbsp;soit&nbsp;recharger&nbsp;lors&nbsp;d'un&nbsp;futur&nbsp;lancement&nbsp;grace&nbsp;a&nbsp;la&nbsp;methode&nbsp;save_model</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

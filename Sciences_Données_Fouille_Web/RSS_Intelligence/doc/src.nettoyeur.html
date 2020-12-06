@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.nettoyeur</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.nettoyeur</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Ccours%5Cmaster2%5Csciences_donn%C3%A9es_fouille_web%5Crss_intelligence%5Csrc%5Cnettoyeur.py">d:\cours\master2\sciences_données_fouille_web\rss_intelligence\src\nettoyeur.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="io.html">io</a><br>
+</td><td width="25%" valign=top><a href="lxml.html">lxml</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.nettoyeur.html#Nettoyeur">Nettoyeur</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Nettoyeur">class <strong>Nettoyeur</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Nettoyeur">Nettoyeur</a>(tool=0,&nbsp;optional_ponctiation_carac='')<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Nettoyeur-__init__"><strong>__init__</strong></a>(self, tool=0, optional_ponctiation_carac='')</dt><dd><tt>Initialiseur&nbsp;du&nbsp;<a href="#Nettoyeur">Nettoyeur</a><br>
+&nbsp;<br>
+Paramètres:<br>
+tool=0&nbsp;:&nbsp;Quel&nbsp;outil&nbsp;va&nbsp;ton&nbsp;utiliser&nbsp;pour&nbsp;la&nbsp;recupération&nbsp;des&nbsp;informations<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;DatabaseTool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;ElasticTool<br>
+optional_ponctiation_carac&nbsp;:&nbsp;les&nbsp;caractère&nbsp;supplémntaires&nbsp;a&nbsp;retirer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_balise"><strong>enleve_balise</strong></a>(self, texte)</dt><dd><tt>Enleve&nbsp;toutes&nbsp;les&nbsp;balises&nbsp;HTML,&nbsp;JAVASSCRIPT&nbsp;du&nbsp;texte&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_chiffre"><strong>enleve_chiffre</strong></a>(self, texte)</dt><dd><tt>Enleve&nbsp;tous&nbsp;les&nbsp;chiffres&nbsp;du&nbsp;texte&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_espace"><strong>enleve_espace</strong></a>(self, texte)</dt><dd><tt>Enleve&nbsp;tous&nbsp;les&nbsp;espaces&nbsp;du&nbsp;texte&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_espace_xml"><strong>enleve_espace_xml</strong></a>(self, texte)</dt><dd><tt>Enleve&nbsp;tous&nbsp;les&nbsp;espaces&nbsp;du&nbsp;texte&nbsp;xml&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_ponctuation"><strong>enleve_ponctuation</strong></a>(self, texte)</dt><dd><tt>Enleve&nbsp;toutes&nbsp;les&nbsp;ponctuations&nbsp;du&nbsp;texte&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-enleve_stop_words"><strong>enleve_stop_words</strong></a>(self, texte, lang='fr')</dt><dd><tt>Enleve&nbsp;tous&nbsp;les&nbsp;mots&nbsp;d'arret&nbsp;d'une&nbsp;langue&nbsp;donné&nbsp;du&nbsp;texte&nbsp;donné<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;le&nbsp;texte&nbsp;a&nbsp;transformer<br>
+lang&nbsp;:&nbsp;la&nbsp;langue&nbsp;des&nbsp;mots&nbsp;d'arret&nbsp;a&nbsp;enlever</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-get_clean_array"><strong>get_clean_array</strong></a>(self, texte, lang='fr')</dt><dd><tt>Nettoie&nbsp;un&nbsp;texte&nbsp;et&nbsp;le&nbsp;renvoie&nbsp;en&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-get_clean_string"><strong>get_clean_string</strong></a>(self, texte, lang='fr')</dt><dd><tt>Nettoie&nbsp;un&nbsp;texte&nbsp;et&nbsp;le&nbsp;rnvoie&nbsp;en&nbsp;string</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-nettoyer"><strong>nettoyer</strong></a>(self, texte, lang='fr')</dt><dd><tt>Nettoie&nbsp;un&nbsp;texte&nbsp;donné</tt></dd></dl>
+
+<dl><dt><a name="Nettoyeur-supported_lang"><strong>supported_lang</strong></a>(self, lang='fr')</dt><dd><tt>Renvoie&nbsp;le&nbsp;nom&nbsp;complet&nbsp;des&nbsp;languages&nbsp;supportés<br>
+&nbsp;<br>
+Paramètres:<br>
+lang&nbsp;:&nbsp;le&nbsp;diminutif&nbsp;du&nbsp;language</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>punctuation</strong> = '!"#$%&amp;<font color="#c040c0">\'</font>()*+,-./:;&lt;=&gt;?@[<font color="#c040c0">\\</font>]^_`{|}~'</td></tr></table>
+</body></html>

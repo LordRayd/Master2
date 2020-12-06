@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.database_tool</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.database_tool</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Ccours%5Cmaster2%5Csciences_donn%C3%A9es_fouille_web%5Crss_intelligence%5Csrc%5Cdatabase_tool.py">d:\cours\master2\sciences_données_fouille_web\rss_intelligence\src\database_tool.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="shelve.html">shelve</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.database_tool.html#DatabaseTool">DatabaseTool</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DatabaseTool">class <strong>DatabaseTool</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DatabaseTool">DatabaseTool</a>(database_name='database/database')<br>
+&nbsp;<br>
+Outil&nbsp;de&nbsp;sauvegarde&nbsp;des&nbsp;elements&nbsp;Rss&nbsp;dans&nbsp;une&nbsp;base&nbsp;de&nbsp;données&nbsp;shelve<br>
+&nbsp;<br>
+Attributs:<br>
+_db&nbsp;:&nbsp;La&nbsp;connexion&nbsp;à&nbsp;la&nbsp;base&nbsp;de&nbsp;données<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DatabaseTool-__init__"><strong>__init__</strong></a>(self, database_name='database/database')</dt><dd><tt>Initialiseur&nbsp;de&nbsp;l'objet&nbsp;<a href="#DatabaseTool">DatabaseTool</a><br>
+&nbsp;<br>
+Paramètres:<br>
+database_name&nbsp;:&nbsp;L'endroit&nbsp;ou&nbsp;sera&nbsp;sauvegarder&nbsp;la&nbsp;base&nbsp;de&nbsp;données</tt></dd></dl>
+
+<dl><dt><a name="DatabaseTool-getConnection"><strong>getConnection</strong></a>(self, database_name='database/database')</dt><dd><tt>Ouvre&nbsp;une&nbsp;connection&nbsp;avec&nbsp;la&nbsp;base&nbsp;de&nbsp;données&nbsp;et&nbsp;la&nbsp;retourne<br>
+&nbsp;<br>
+Paramètres:<br>
+database_name&nbsp;:&nbsp;L'endroit&nbsp;ou&nbsp;sera&nbsp;sauvegarder&nbsp;la&nbsp;base&nbsp;de&nbsp;données</tt></dd></dl>
+
+<dl><dt><a name="DatabaseTool-get_all_element_lang"><strong>get_all_element_lang</strong></a>(self, lang='fr')</dt><dd><tt>Retourne&nbsp;tous&nbsp;les&nbsp;éléments&nbsp;pour&nbsp;une&nbsp;langue&nbsp;donnée<br>
+&nbsp;<br>
+Paramètres:<br>
+lang='fr'&nbsp;:&nbsp;La&nbsp;langue&nbsp;dont&nbsp;il&nbsp;faut&nbsp;récupérer&nbsp;les&nbsp;éléments<br>
+&nbsp;<br>
+Retourne:<br>
+Une&nbsp;liste&nbsp;d'objet&nbsp;Item_RSS</tt></dd></dl>
+
+<dl><dt><a name="DatabaseTool-insertion_item"><strong>insertion_item</strong></a>(self, _item)</dt><dd><tt>Sauvegarde&nbsp;un&nbsp;item&nbsp;en&nbsp;base&nbsp;de&nbsp;données&nbsp;si&nbsp;il&nbsp;n'y&nbsp;est&nbsp;pas&nbsp;deja&nbsp;ou&nbsp;qu'il&nbsp;a&nbsp;changé<br>
+&nbsp;<br>
+Paramètres:<br>
+_item&nbsp;:&nbsp;L'item&nbsp;a&nbsp;sauvegarder</tt></dd></dl>
+
+<dl><dt><a name="DatabaseTool-insertion_items"><strong>insertion_items</strong></a>(self, _items)</dt><dd><tt>Insère&nbsp;les&nbsp;items&nbsp;données&nbsp;en&nbsp;base&nbsp;de&nbsp;données<br>
+&nbsp;<br>
+Paramètres:<br>
+_items&nbsp;:&nbsp;La&nbsp;liste&nbsp;des&nbsp;items&nbsp;à&nbsp;sauvegarder</tt></dd></dl>
+
+<dl><dt><a name="DatabaseTool-verification_integrity"><strong>verification_integrity</strong></a>(self, id_, integrity_)</dt><dd><tt>Vérifie&nbsp;l'intégrité&nbsp;d'un&nbsp;élément&nbsp;en&nbsp;base<br>
+&nbsp;<br>
+Paramètres:<br>
+id_&nbsp;:&nbsp;L'identifiant&nbsp;de&nbsp;l'élément<br>
+integrity_&nbsp;:&nbsp;La&nbsp;valeur&nbsp;a&nbsp;comparer&nbsp;avec&nbsp;celle&nbsp;en&nbsp;base<br>
+&nbsp;<br>
+Retour:<br>
+False&nbsp;si&nbsp;l'élément&nbsp;n'est&nbsp;pas&nbsp;en&nbsp;base&nbsp;ou&nbsp;que&nbsp;son&nbsp;champs&nbsp;integrity&nbsp;a&nbsp;changé<br>
+True&nbsp;autrement</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

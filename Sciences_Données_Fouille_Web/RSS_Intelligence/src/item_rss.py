@@ -8,6 +8,7 @@ import lxml
 from lxml.html.clean import Cleaner
 import io
 import os
+from src.classifier import Classifier
 
 class Item_RSS:
     """
@@ -39,7 +40,7 @@ class Item_RSS:
     target_data = None
     type_flux = None
 
-    def __init__(self, post, feed, tool=None, type_flux='default', clean_source=0):
+    def __init__(self, post, feed, tool=None, type_flux='default', clean_source=0, classifier=None):
         """
         Initialise l item rss a partir des données récupérés depuis le flux
 
@@ -52,7 +53,6 @@ class Item_RSS:
         """
         self.tool = tool
         self.type_flux = type_flux
-        self.type_predit = 'default'
         if  hasattr(post, 'title'):
             self.tile = post.title
             self.lang = langdetect.detect(post.title)
@@ -70,6 +70,13 @@ class Item_RSS:
             self.id = hashlib.sha224(post.link.encode(encoding='UTF-8')).hexdigest()
             self.set_target_data_from_url(post.link, clean_source=clean_source)
         self.date = datetime.now()
+        if self.lang != None and (self.lang=='fr' or self.lang=='en') :
+            classifier = Classifier(lang=self.lang)
+            classifier.load_all_model(lang=self.lang)
+            classifier.load_dataset(lang=self.lang)
+            self.type_predit = classifier.predict(self.target_data)
+        else :
+            self.type_predit = 'default'
 
     def set_target_data_from_url(self, url, clean_source=0):
         """
@@ -167,5 +174,5 @@ class Item_RSS:
         """
         Sauvegarde l'item si il possède un outil de sauvegarde
         """
-        if self.tool != None :
+        if self.tool != None and self.target_data != None:
             self.tool.insertion_item(self)

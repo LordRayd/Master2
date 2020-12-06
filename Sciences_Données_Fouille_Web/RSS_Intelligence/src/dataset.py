@@ -57,7 +57,7 @@ class Dataset:
             database = DatabaseTool()
             list_elem = database.get_all_element_lang(lang=self.lang)
             for elem in list_elem :
-                self.data.append(self.nettoyeur.get_clean_string(elem.target_data))
+                self.data.append(self.nettoyeur.get_clean_string(elem.target_data, lang=self.lang))
                 self.target.append(elem.type_flux)
             self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.data, self.target, test_size=0.15)
 
