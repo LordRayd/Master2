@@ -2,29 +2,56 @@ from elasticsearch import Elasticsearch
 import numpy as np
 
 class ElasticTool:
-
+    """
+    Attributs:
+    _es : La connexion a la base ElasticSearch
+    """
     _es = None
     
     def __init__(self):
+        """
+        Initialiseur de la class ElasticTool. Fait la connexion avec ElasticSearch et ajoute tous les index necessaires.
+        """
         self._es = self.getConnection()
         self.add_all_index()
 
     def getConnection(self, _host = 'localhost', _port=9200):
+        """
+        Etablit une connexion avec ElasticSearch
+
+        Paramètres:
+        _host='localhost' : l'adresse ou se trouve ElasticSearch
+        _port=9200 : Le port sur lequel on accede à ElasticSearch
+
+        Retourne la connexion
+        """
         if self._es == None :
             self._es = Elasticsearch([{'host': _host, 'port': _port}])
         return self._es
 
     def affichage_etat(self):
+        """
+        Affiche l'état d'ElasticSearch a savoir si il est lancé ou non
+        """
         if self._es.ping() :
             print('ElasticSearch Tourne')
         else :
             print('ElasticSearch ne tourne pas')
 
     def add_index(self, name_index):
+        """
+        Ajoute un index à ElasticSearch
+        
+        Paramètres:
+        name_index : Le nom de l'index
+        """
         if self._es.indices.exists(index=name_index):
             self._es.indices.create(index=name_index, ignore=400)
 
     def add_all_index(self):
+        """
+        Ajoute tous les index nécessaires au fonctionnement des modules
+        """
         self.add_index("item_rss")
         self.add_index("title")
         self.add_index("summary")
@@ -39,9 +66,18 @@ class ElasticTool:
         self.add_index('type_predit')
 
     def delete_index(self, name_index):
+        """
+        Supprime un index d'elasticSearch
+
+        Paramètres:
+        name_index : Le nom de l'index a supprimé
+        """
         self._es.indices.delete(index=name_index, ignore=[400, 404])
 
     def delete_all_index(self):
+        """
+        Supprime tous les index nécessaire au fonctionnement des modules
+        """
         self.delete_index("item_rss")
         self.delete_index("title")
         self.delete_index("summary")
@@ -56,6 +92,12 @@ class ElasticTool:
         self.delete_index('type_predit')
 
     def insertion_all_items(self, _items):
+        """
+        Insère tous les éléments dans ElasticSearch
+
+        Paramètres:
+        _items : La list des Item_RSS à ajouter
+        """
         for i in _items :
             self.insertion_item(i)
 

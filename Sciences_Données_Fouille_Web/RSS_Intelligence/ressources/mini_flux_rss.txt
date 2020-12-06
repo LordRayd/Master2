@@ -1,0 +1,6 @@
+https://www.lefigaro.fr/rss/figaro_musique.xml ART_CULTURE
+https://www.lefigaro.fr/rss/figaro_economie_le-scan-eco.xml ECONOMIE
+https://www.lemonde.fr/politique/rss_full.xml POLITIQUE
+https://lejournal.cnrs.fr/rss SANTE_MEDECINE
+https://www.sciencesetavenir.fr/rss.xml SCIENCE
+https://www.lemonde.fr/sport/rss_full.xml SPORT
