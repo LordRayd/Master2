@@ -15,5 +15,4 @@ cr.crawl_from_file('ressources/mini_flux_rss.txt')
 #print('target fr : ', dataset.target)
 
 classifier = Classifier()
-classifier.bayesien(save_model=True)
-classifier.neural(save_model=True)
+classifier.all_classification(save_model=True)

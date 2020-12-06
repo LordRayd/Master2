@@ -75,9 +75,13 @@ class Dataset:
 
             self.save_vector()
 
+    def load_dataset(self):
+        self.load_vector()
+        self.encoder_label = LabelEncoder()
+
 
     def save_vector(self):
-        pickle.dump(self.vector.vocabulary_,open("vector/vect_"+ self.lang +".pkl","wb"))
+        pickle.dump(self.vector.vocabulary_,open("dataset/vect_"+ self.lang +".pkl","wb"))
 
     def load_vector(self):
-        self.vector = CountVectorizer(decode_error="replace",vocabulary=pickle.load(open("vector/vect_"+ self.lang +".pkl", "rb")))
+        self.vector = CountVectorizer(decode_error="replace",vocabulary=pickle.load(open("dataset/vect_"+ self.lang +".pkl", "rb")))
