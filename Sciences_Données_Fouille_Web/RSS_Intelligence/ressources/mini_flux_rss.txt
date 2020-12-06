@@ -1,6 +1,12 @@
 https://www.lefigaro.fr/rss/figaro_musique.xml ART_CULTURE
+https://www.latimes.com/entertainment-arts/movies/rss2.0.xml ART_CULTURE
 https://www.lefigaro.fr/rss/figaro_economie_le-scan-eco.xml ECONOMIE
+http://www.dailymirror.lk/rss/business/215 ECONOMIE
 https://www.lemonde.fr/politique/rss_full.xml POLITIQUE
+https://www.latimes.com/politics/rss2.0.xml POLITIQUE
 https://lejournal.cnrs.fr/rss SANTE_MEDECINE
+https://theconversation.com/us/health/articles.atom SANTE_MEDECINE
 https://www.sciencesetavenir.fr/rss.xml SCIENCE
+https://www.latimes.com/science/rss2.0.xml SCIENCE
 https://www.lemonde.fr/sport/rss_full.xml SPORT
+http://feeds.bbci.co.uk/sport/rss.xml SPORT

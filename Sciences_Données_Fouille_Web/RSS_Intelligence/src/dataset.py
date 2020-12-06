@@ -43,7 +43,7 @@ class Dataset:
         self.vector = None
         self.encoder_label = None
     
-    def create_dataset(self, tool=0):
+    def create_dataset(self, tool=0, save_dataset=False):
         """
         Creation d'un jeu de données sur un langage
 
@@ -51,6 +51,7 @@ class Dataset:
         tool=0 : Quels outils va ton utiliser pour la recupération des informations
             0 : DatabaseTool
             1 : ElasticTool
+        save_dataset=False : si on doit ou non sauvegarder le dataset dans les fichiers
         """
         if tool == 0 :
             database = DatabaseTool()
@@ -73,15 +74,73 @@ class Dataset:
             self.X_train =  self.vector.transform(self.X_train).toarray()
             self.X_test =  self.vector.transform(self.X_test).toarray()
 
+        if save_dataset == True :
             self.save_vector()
+            self.save_data()
+            self.save_label_encoder()
 
-    def load_dataset(self):
-        self.load_vector()
-        self.encoder_label = LabelEncoder()
+    def load_dataset(self,lang='fr'):
+        """
+        Recharge un dataset depuis les fichiers
 
+        Paramètres:
+        lang : la langue du dataset a chargé
+        """
+        self.load_vector(lang=lang)
+        self.load_label_encoder(lang=lang)
+        self.load_data(lang=lang)
+
+    def preprocessing_data(self, texte_xml):
+        """
+        Applique le nottoyeur a un texte xml que l'on souhaite utilisé pour la prédiction
+
+        Paramètres:
+        texte_xml : le texte xml a transformer
+
+        Retourne l'élément qui sera données a predict de Classifier
+        """
+        tab_text = [self.nettoyeur.get_clean_string(texte_xml)]
+        return self.vector.transform(tab_text).toarray()
+
+    def save_data(self):
+        """
+        Sauvegarde les données d entrainement et de test
+        """
+        pickle.dump(self.X_train, open("dataset/"+ self.lang +"/xtrain.pkl","wb"))
+        pickle.dump(self.X_test, open("dataset/"+ self.lang +"/xtest.pkl","wb"))
+        pickle.dump(self.y_train, open("dataset/"+ self.lang +"/ytrain.pkl","wb"))
+        pickle.dump(self.y_test, open("dataset/"+ self.lang +"/ytest.pkl","wb"))
+
+    def load_data(self, lang='fr'):
+        """
+        Recharge les données d entrainement et de test depuis les fichiers
+        """
+        self.X_train = pickle.load(open("dataset/"+ lang +"/xtrain.pkl", "rb"))
+        self.X_test = pickle.load(open("dataset/"+ lang +"/xtest.pkl", "rb"))
+        self.y_train = pickle.load(open("dataset/"+ lang +"/ytrain.pkl", "rb"))
+        self.y_test = pickle.load(open("dataset/"+ lang +"/ytest.pkl", "rb"))
 
     def save_vector(self):
-        pickle.dump(self.vector.vocabulary_,open("dataset/vect_"+ self.lang +".pkl","wb"))
+        """
+        Sauvegarde le vecteur de transformation des textes
+        """
+        pickle.dump(self.vector.vocabulary_,open("dataset/"+ self.lang +"/vect.pkl","wb"))
 
-    def load_vector(self):
-        self.vector = CountVectorizer(decode_error="replace",vocabulary=pickle.load(open("dataset/vect_"+ self.lang +".pkl", "rb")))
+    def load_vector(self, lang='fr'):
+        """
+        Recharge le vecteur de transformation des textes depuis les fichiers
+        """
+        self.vector = CountVectorizer(decode_error="replace",vocabulary=pickle.load(open("dataset/"+ lang +"/vect.pkl", "rb")))
+
+    def save_label_encoder(self):
+        """
+        Sauvegarde le transformer de label
+        """
+        pickle.dump(self.encoder_label.classes_, open("dataset/"+ self.lang +"/label.pkl","wb"))
+    
+    def load_label_encoder(self, lang='fr'):
+        """
+        Recharge le transformer de label depuis les fichiers
+        """
+        self.encoder_label = LabelEncoder()
+        self.encoder_label.classes_ = pickle.load(open("dataset/"+ lang +"/label.pkl", "rb"))

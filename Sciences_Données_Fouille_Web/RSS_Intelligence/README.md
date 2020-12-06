@@ -9,3 +9,4 @@ Intaller les modules aveec pip install :
 * stop-words ()
 * feedparser (https://pypi.org/project/feedparser/)
 * snowballstemmer (https://pypi.org/project/snowballstemmer/)
+* matplotlib
