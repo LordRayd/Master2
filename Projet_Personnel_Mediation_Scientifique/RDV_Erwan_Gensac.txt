@@ -1,5 +1,5 @@
 REUNION DU 20/11/20
-L'utilisateur dispose d'unun smartphone avec l'application.
+L'utilisateur dispose d'un smartphone avec l'application.
 L'utilisateur se balladant à "Moustérian"reçoit une notification sur ce lieu et veut plus d'informations.
 
 Cliquer sur la notification
