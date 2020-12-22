@@ -22,6 +22,11 @@ Dezipper RSS_Intelligence
 ### Commande
 Pour lancer il suffit de faire *python main.py*
 
+## Benchmark résultats
+| **Méthode** | **language** | **F1** | **accuracy** | **auc(macro)** |
+|---|---|---|---|---|
+| NeuralNetwork | fr | 0.508 | 0.683 | 0.852 |
+| NeuralNetwork | en | 0.117 | 0.162 | 0.648 |
 ## Fonctionnement
 ### Explications
 Le Projet de création d'une recherche intelligente s'appuie sur les modules :
