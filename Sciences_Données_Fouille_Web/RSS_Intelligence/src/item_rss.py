@@ -1,3 +1,4 @@
+
 import hashlib
 import urllib.request
 from datetime import datetime
@@ -8,39 +9,57 @@ import lxml
 from lxml.html.clean import Cleaner
 import io
 import os
-from src.classifier import Classifier
+#from src.classifier import Classifier
 
 class Item_RSS:
     """
     Représente un item Rss obtenu depuis le flux.
-
-    Attributs :
-    id : L'identifiant de l'item Rss. Un hash de l'url de l'article que présente l'item Rss.
-    title : Le titre de l'item Rss.
-    summary : Un resumé de l'item Rss récupéré.
-    description : Une description de l'item Rss récupéré.
-    all_links : Tous les liens contenus l'item menant a d'autres page.
-    source_post : Le lien vers l'article de l'item Rss.
-    source_feed : L url de la source du flux.
-    local_url : L url du fichier local contenant la page de l'item Rss.
-    lang : La langue utilisé dans le texte de l'item Rss.
-    date : La date de l'item Rss.
-    target_data : Le contenu de la page source de l'item Rss.
-    type_flux : le type du flux Rss utilisé (ECONOMIE, SPORT, ....).
     """
-    id = None
-    title = None
-    summary = None
-    description = None
-    all_links = None
-    source_post = None
-    source_feed = None
-    lang = None
-    date = None
-    target_data = None
-    type_flux = None
+    def __init__(self):
+        """
+        Attributs :
+        id : L'identifiant de l'item Rss. Un hash de l'url de l'article que présente l'item Rss.
+        title : Le titre de l'item Rss.
+        summary : Un resumé de l'item Rss récupéré.
+        description : Une description de l'item Rss récupéré.
+        all_links : Tous les liens contenus l'item menant a d'autres page.
+        source_post : Le lien vers l'article de l'item Rss.
+        source_feed : L url de la source du flux.
+        local_url : L url du fichier local contenant la page de l'item Rss.
+        lang : La langue utilisé dans le texte de l'item Rss.
+        date : La date de l'item Rss.
+        target_data : Le contenu de la page source de l'item Rss.
+        type_flux : le type du flux Rss utilisé (ECONOMIE, SPORT, ....).
+        """
+        self.id = None
+        self.title = None
+        self.summary = None
+        self.description = None
+        self.all_links = None
+        self.source_post = None
+        self.source_feed = None
+        self.lang = None
+        self.date = None
+        self.target_data = None
+        self.type_flux = None
+    
+    def create_from_tool(self,id_ = None, title_ = None, summary_ = None, description_ = None, all_links_ = None, source_post_ = None, source_feed_ = None, lang_ = None, date_ = None, target_data_ = None, type_flux_ = None):
+        """
+        Crée un item a partir des champs
+        """
+        self.id = id_
+        self.title = title_
+        self.summary = summary_
+        self.description = description_
+        self.all_links = all_links_
+        self.source_post = source_post_
+        self.source_feed = source_feed_
+        self.lang = lang_
+        self.date = date_
+        self.target_data = target_data_
+        self.type_flux = type_flux_
 
-    def __init__(self, post, feed, tool=None, type_flux='default', clean_source=0, classifier=None):
+    def create_from_feed(self, post, feed, tool=None, type_flux='default', clean_source=0, classifier=None):
         """
         Initialise l item rss a partir des données récupérés depuis le flux
 
@@ -71,8 +90,9 @@ class Item_RSS:
             self.set_target_data_from_url(post.link, clean_source=clean_source)
         self.date = datetime.now()
         if self.lang != None and (self.lang=='fr' or self.lang=='en') :
+            from src.classifier import Classifier
             classifier = Classifier(lang=self.lang)
-            classifier.load_all_model(lang=self.lang)
+            classifier.load_all(lang=self.lang)
             classifier.load_dataset(lang=self.lang)
             self.type_predit = classifier.predict(self.target_data)
         else :

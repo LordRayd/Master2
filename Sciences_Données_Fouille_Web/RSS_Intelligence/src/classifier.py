@@ -33,7 +33,7 @@ class Classifier :
         Paramètres :
         lang='fr' : Choix de la langue du Classifier
         """
-
+        self.lang = lang
         self.dataset = Dataset(lang=lang)
         self.model_knn = None
         self.model_reg_log = None
@@ -79,7 +79,7 @@ class Classifier :
         score = self.model_knn.score(self.dataset.X_test, self.dataset.y_test)
         self.affiche_resultat_score(score)
         if save_model == True :
-            self.save_model(self.model_knn, model_name='knn')
+            self.save_model(self.model_knn, model_name='knn', lang=self.lang)
 
     def reg_log(self, save_model=False):
         """
@@ -97,7 +97,7 @@ class Classifier :
         score = self.model_reg_log.score(self.dataset.X_test, self.dataset.y_test)
         self.affiche_resultat_score(score)
         if save_model == True :
-            self.save_model(self.model_reg_log, model_name='reg_log')
+            self.save_model(self.model_reg_log, model_name='reg_log', lang=self.lang)
 
     def bayesien(self, save_model=False):
         """
@@ -117,7 +117,7 @@ class Classifier :
         self.affiche_resultat_score(score)
 
         if save_model == True :
-            self.save_model(self.model_bayesien, model_name='bayesian')
+            self.save_model(self.model_bayesien, model_name='bayesian', lang=self.lang)
 
     def svm(self, save_model=False):
         """
@@ -135,7 +135,7 @@ class Classifier :
         score = self.model_svm.score(self.dataset.X_test, self.dataset.y_test)
         self.affiche_resultat_score(score)
         if save_model == True :
-            self.save_model(self.model_svm, model_name='svm')
+            self.save_model(self.model_svm, model_name='svm', lang=self.lang)
 
     def neural(self, save_model=False):
         """
@@ -153,7 +153,7 @@ class Classifier :
         score = self.model_neural.score(self.dataset.X_test, self.dataset.y_test)
         self.affiche_resultat_score(score)
         if save_model == True :
-            self.save_model(self.model_neural, model_name='neural')
+            self.save_model(self.model_neural, model_name='neural', lang=self.lang)
         
     def random_forest(self, save_model=False):
         """
@@ -172,7 +172,7 @@ class Classifier :
         self.affiche_resultat_score(score)
 
         if save_model == True :
-            self.save_model(self.model_random_forest, model_name='forest')
+            self.save_model(self.model_random_forest, model_name='forest', lang=self.lang)
 
     def all_classification(self, save_model=False):
         """
@@ -209,8 +209,9 @@ class Classifier :
         Retourne le label
         """
         x = self.dataset.preprocessing_data(texte_xml)
-        y = self.model_bayesien.predict(x)
-        return self.dataset.encoder_label.inverse_transform(y)[0]
+        y = self.model_neural.predict(x)
+        classes = self.model_neural.classes_
+        return self.dataset.encoder_label.inverse_transform(y)[0], self.model_neural.predict_proba(x), self.dataset.encoder_label.inverse_transform(classes)
 
     def save_model(self, model, model_name, lang='fr', default_path_file='model/'):
         """
@@ -258,3 +259,15 @@ class Classifier :
         self.load_model('svm', lang=lang, default_path_file=default_path_file)
         self.load_model('neural', lang=lang, default_path_file=default_path_file)
         self.load_model('forest', lang=lang, default_path_file=default_path_file)
+    
+    def load_all(self, lang='fr'):
+        """
+        Recharge tous les éléments nécessaires à l'éxécution d'une classification depuis les fichiers
+
+        Paramètres:
+        lang : La langue des modeles et dataset a charger
+        """
+        self.load_all_model(lang=lang)
+        self.dataset.load_label_encoder(lang=lang)
+        self.dataset.load_vector(lang=lang)
+        self.load_dataset(lang=lang)

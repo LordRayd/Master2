@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module src.enrichment</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="src.html"><font color="#ffffff">src</font></a>.enrichment</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:d%3A%5Ccours%5Cmaster2%5Csciences_donn%C3%A9es_fouille_web%5Crss_intelligence%5Csrc%5Cenrichment.py">d:\cours\master2\sciences_données_fouille_web\rss_intelligence\src\enrichment.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="builtins.html#object">builtins.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="src.enrichment.html#Enrichment">Enrichment</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Enrichment">class <strong>Enrichment</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Enrichment">Enrichment</a>(tool=1)<br>
+&nbsp;<br>
+<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Enrichment-__init__"><strong>__init__</strong></a>(self, tool=1)</dt><dd><tt>Initialise&nbsp;l&nbsp;objet&nbsp;<a href="#Enrichment">Enrichment</a><br>
+&nbsp;<br>
+Paramètres:<br>
+tool&nbsp;:&nbsp;L&nbsp;outil&nbsp;de&nbsp;sauvegarde&nbsp;utilisé&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;0&nbsp;:&nbsp;DatabaseTool<br>
+&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;:&nbsp;ElasticToolv0</tt></dd></dl>
+
+<dl><dt><a name="Enrichment-clean"><strong>clean</strong></a>(self, texte, lang='fr')</dt><dd><tt>Utilise&nbsp;le&nbsp;nettyeur&nbsp;pour&nbsp;supprimer&nbsp;les&nbsp;elements&nbsp;genants&nbsp;du&nbsp;texte<br>
+&nbsp;<br>
+Paramètres:<br>
+texte&nbsp;:&nbsp;Le&nbsp;texte&nbsp;à&nbsp;nettoyer<br>
+lang&nbsp;:&nbsp;La&nbsp;langue&nbsp;a&nbsp;utilisé&nbsp;lors&nbsp;du&nbsp;nettoyage</tt></dd></dl>
+
+<dl><dt><a name="Enrichment-enrich"><strong>enrich</strong></a>(self, load=False, save=False, lang=['fr', 'en'])</dt><dd><tt>Initialise&nbsp;le&nbsp;model&nbsp;Word2Vec,&nbsp;l'entraine&nbsp;et&nbsp;le&nbsp;sauvegarde<br>
+&nbsp;<br>
+Paramètres:<br>
+load&nbsp;:&nbsp;si&nbsp;True&nbsp;charge&nbsp;le&nbsp;model&nbsp;depuis&nbsp;les&nbsp;fichiers&nbsp;locaux<br>
+save&nbsp;:&nbsp;si&nbsp;True&nbsp;sauvegarde&nbsp;le&nbsp;model&nbsp;dans&nbsp;le&nbsp;dossier&nbsp;model<br>
+lang&nbsp;:&nbsp;un&nbsp;array&nbsp;des&nbsp;langs&nbsp;a&nbsp;supportés</tt></dd></dl>
+
+<dl><dt><a name="Enrichment-loadVect"><strong>loadVect</strong></a>(self)</dt><dd><tt>Recharge&nbsp;le&nbsp;model&nbsp;Word2Vec&nbsp;depuis&nbsp;les&nbsp;fichiers&nbsp;locaux</tt></dd></dl>
+
+<dl><dt><a name="Enrichment-most_similar"><strong>most_similar</strong></a>(self, words, n_words_similar=3)</dt><dd><tt>Trouve&nbsp;les&nbsp;mots&nbsp;similaires&nbsp;au&nbsp;texte&nbsp;rentré<br>
+&nbsp;<br>
+Paramètres:<br>
+words&nbsp;:&nbsp;une&nbsp;phrase&nbsp;des&nbsp;mots&nbsp;dont&nbsp;on&nbsp;cherche&nbsp;les&nbsp;mots&nbsp;similaires&nbsp;<br>
+n_words_similar&nbsp;:&nbsp;Le&nbsp;nombre&nbsp;de&nbsp;mot&nbsp;le&nbsp;plus&nbsp;similaires&nbsp;a&nbsp;retourner<br>
+&nbsp;<br>
+Retourne&nbsp;Un&nbsp;liste&nbsp;des&nbsp;mots&nbsp;similaires</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

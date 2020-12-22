@@ -1,5 +1,6 @@
 from src.database_tool import DatabaseTool
 from src.elastic_tool import ElasticTool
+from src.elastic_tool import ElasticToolv0
 from src.nettoyeur import Nettoyeur
 
 import pickle
@@ -55,24 +56,26 @@ class Dataset:
         """
         if tool == 0 :
             database = DatabaseTool()
-            list_elem = database.get_all_element_lang(lang=self.lang)
-            for elem in list_elem :
-                self.data.append(self.nettoyeur.get_clean_string(elem.target_data, lang=self.lang))
-                self.target.append(elem.type_flux)
-            self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.data, self.target, test_size=0.15)
+        else :
+            database = ElasticToolv0()
+        list_elem = database.get_all_element_lang(lang=self.lang)
+        for elem in list_elem :
+            self.data.append(self.nettoyeur.get_clean_string(elem.target_data, lang=self.lang))
+            self.target.append(elem.type_flux)
+        self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(self.data, self.target, test_size=0.15)
 
-            # Transforme Les lebels
-            self.encoder_label = LabelEncoder()
-            self.y_train = self.encoder_label.fit_transform(self.y_train)
-            self.y_test = self.encoder_label.fit_transform(self.y_test)
+        # Transforme Les lebels
+        self.encoder_label = LabelEncoder()
+        self.y_train = self.encoder_label.fit_transform(self.y_train)
+        self.y_test = self.encoder_label.fit_transform(self.y_test)
 
-            # create a count vectorizer object 
-            self.vector = CountVectorizer(analyzer='word', token_pattern=r'\w{1,}')
-            self.vector.fit(self.data)
+        # create a count vectorizer object 
+        self.vector = CountVectorizer(analyzer='word', token_pattern=r'\w{1,}')
+        self.vector.fit(self.data)
 
-            # transform the training and validation data using count vectorizer object
-            self.X_train =  self.vector.transform(self.X_train).toarray()
-            self.X_test =  self.vector.transform(self.X_test).toarray()
+        # transform the training and validation data using count vectorizer object
+        self.X_train =  self.vector.transform(self.X_train).toarray()
+        self.X_test =  self.vector.transform(self.X_test).toarray()
 
         if save_dataset == True :
             self.save_vector()

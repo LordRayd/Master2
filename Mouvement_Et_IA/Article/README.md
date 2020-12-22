@@ -37,7 +37,7 @@ Après avoir itérations sur le nombre total d'étape PAF, le processus est rép
 ### OpenPose
 #### Présentation
 * Le premier systeme de reconnaissance multi-personne en temps reel détectant le corps, les mains, les pieds et le visage.
-* Il peut tourner sous tous OS et utilisé le CPUU comme le GPU.
+* Il peut tourner sous tous OS et utilisé le CPU comme le GPU.
 * L'utilisateur peut choisir en entrée une image, une vidéo, une webcam ou l'adresse IP d'une camera.
 * Il peut choisir d'aficher ou de sauvegarder les resultats et qu'elle resultat il souhaite (liste au point 1), combien de GPU utiliser, si il doit passer des frames etc...
 * OpenPose est séparable en 3 blocks :

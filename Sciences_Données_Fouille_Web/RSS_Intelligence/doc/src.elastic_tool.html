@@ -125,22 +125,52 @@ Data descriptors defined here:<br>
 <font color="#000000" face="helvetica, arial"><a name="ElasticToolv0">class <strong>ElasticToolv0</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt>#==================================&nbsp;Version&nbsp;avec&nbsp;tout&nbsp;dans&nbsp;1&nbsp;index&nbsp;===============================<br>&nbsp;</tt></td></tr>
+<td colspan=2><tt>Outil&nbsp;de&nbsp;sauvegarde&nbsp;dans&nbsp;une&nbsp;base&nbsp;ElasticSearch&nbsp;avec&nbsp;tout&nbsp;dans&nbsp;1&nbsp;index<br>
+Attributs:<br>
+_es&nbsp;:&nbsp;La&nbsp;connexion&nbsp;a&nbsp;la&nbsp;base&nbsp;ElasticSearch<br>&nbsp;</tt></td></tr>
 <tr><td>&nbsp;</td>
 <td width="100%">Methods defined here:<br>
-<dl><dt><a name="ElasticToolv0-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialize&nbsp;self.&nbsp;&nbsp;See&nbsp;help(type(self))&nbsp;for&nbsp;accurate&nbsp;signature.</tt></dd></dl>
+<dl><dt><a name="ElasticToolv0-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialiseur&nbsp;de&nbsp;la&nbsp;class&nbsp;<a href="#ElasticTool">ElasticTool</a>.&nbsp;Fait&nbsp;la&nbsp;connexion&nbsp;avec&nbsp;ElasticSearch&nbsp;et&nbsp;ajoute&nbsp;tous&nbsp;les&nbsp;index&nbsp;necessaires.</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-add_index"><strong>add_index</strong></a>(self)</dt></dl>
+<dl><dt><a name="ElasticToolv0-add_index"><strong>add_index</strong></a>(self)</dt><dd><tt>Ajoute&nbsp;l&nbsp;index&nbsp;nécessaire&nbsp;au&nbsp;fonctionnement&nbsp;des&nbsp;modules</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-affichage_etat"><strong>affichage_etat</strong></a>(self)</dt></dl>
+<dl><dt><a name="ElasticToolv0-affichage_etat"><strong>affichage_etat</strong></a>(self)</dt><dd><tt>Affiche&nbsp;l'état&nbsp;d'ElasticSearch&nbsp;a&nbsp;savoir&nbsp;si&nbsp;il&nbsp;est&nbsp;lancé&nbsp;ou&nbsp;non</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-delete_index"><strong>delete_index</strong></a>(self)</dt></dl>
+<dl><dt><a name="ElasticToolv0-delete_index"><strong>delete_index</strong></a>(self)</dt><dd><tt>Supprime&nbsp;l&nbsp;index&nbsp;nécessaire&nbsp;au&nbsp;fonctionnement&nbsp;des&nbsp;modules</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-getConnection"><strong>getConnection</strong></a>(self, _host='localhost', _port=9200)</dt></dl>
+<dl><dt><a name="ElasticToolv0-getConnection"><strong>getConnection</strong></a>(self, _host='localhost', _port=9200)</dt><dd><tt>Etablit&nbsp;une&nbsp;connexion&nbsp;avec&nbsp;ElasticSearch<br>
+&nbsp;<br>
+Paramètres:<br>
+_host='localhost'&nbsp;:&nbsp;l'adresse&nbsp;ou&nbsp;se&nbsp;trouve&nbsp;ElasticSearch<br>
+_port=9200&nbsp;:&nbsp;Le&nbsp;port&nbsp;sur&nbsp;lequel&nbsp;on&nbsp;accede&nbsp;à&nbsp;ElasticSearch<br>
+&nbsp;<br>
+Retourne&nbsp;la&nbsp;connexion</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-insertion_item"><strong>insertion_item</strong></a>(self, _item)</dt></dl>
+<dl><dt><a name="ElasticToolv0-get_all_element_lang"><strong>get_all_element_lang</strong></a>(self, lang='fr', size_result=9999)</dt><dd><tt>Retourne&nbsp;tous&nbsp;les&nbsp;éléments&nbsp;d'une&nbsp;langue&nbsp;donné&nbsp;<br>
+&nbsp;<br>
+Paramètres:<br>
+lang&nbsp;:&nbsp;La&nbsp;langue&nbsp;dont&nbsp;on&nbsp;doit&nbsp;trouver&nbsp;les&nbsp;éléments<br>
+size_result&nbsp;:&nbsp;Le&nbsp;nombre&nbsp;d'item&nbsp;max&nbsp;que&nbsp;l'on&nbsp;peut&nbsp;renvoyer</tt></dd></dl>
 
-<dl><dt><a name="ElasticToolv0-search_by_tags"><strong>search_by_tags</strong></a>(self, tags, size_result=999)</dt></dl>
+<dl><dt><a name="ElasticToolv0-insertion_item"><strong>insertion_item</strong></a>(self, _item)</dt><dd><tt>Insère&nbsp;l&nbsp;item&nbsp;Rss&nbsp;dans&nbsp;ElasticSearch<br>
+&nbsp;<br>
+Paramètres:<br>
+_items&nbsp;:&nbsp;L&nbsp;objet&nbsp;Item_RSS&nbsp;à&nbsp;ajouter</tt></dd></dl>
+
+<dl><dt><a name="ElasticToolv0-search"><strong>search</strong></a>(self, str_query, size_result=999)</dt><dd><tt>Retourne&nbsp;tous&nbsp;les&nbsp;éléments&nbsp;d'une&nbsp;langue&nbsp;donné&nbsp;<br>
+&nbsp;<br>
+Paramètres:<br>
+str_query&nbsp;:&nbsp;La&nbsp;requete&nbsp;à&nbsp;éxécuter&nbsp;sur&nbsp;ElasticSearch<br>
+size_result&nbsp;:&nbsp;Le&nbsp;nombre&nbsp;d'item&nbsp;max&nbsp;que&nbsp;l'on&nbsp;peut&nbsp;renvoyer<br>
+&nbsp;<br>
+Retourne&nbsp;une&nbsp;liste&nbsp;d'item&nbsp;rss</tt></dd></dl>
+
+<dl><dt><a name="ElasticToolv0-search_by_tags"><strong>search_by_tags</strong></a>(self, tags, size_result=999)</dt><dd><tt>Plus&nbsp;utilisé&nbsp;mais&nbsp;a&nbsp;la&nbsp;base&nbsp;il&nbsp;servait&nbsp;a&nbsp;faire&nbsp;une&nbsp;recherche&nbsp;par&nbsp;mot&nbsp;dans&nbsp;le&nbsp;texte&nbsp;de&nbsp;la&nbsp;page&nbsp;html<br>
+pour&nbsp;utilisé&nbsp;il&nbsp;faudrait&nbsp;décommenter&nbsp;la&nbsp;ligne&nbsp;dans&nbsp;insertion_item&nbsp;prevut&nbsp;a&nbsp;cet&nbsp;effet&nbsp;et&nbsp;la&nbsp;modifier&nbsp;un&nbsp;peu<br>
+&nbsp;<br>
+Paramètres:<br>
+tags&nbsp;:&nbsp;Un&nbsp;tableau&nbsp;ddes&nbsp;differents&nbsp;tags&nbsp;a&nbsp;chercher<br>
+size_result&nbsp;:&nbsp;Le&nbsp;nombre&nbsp;d'item&nbsp;max&nbsp;que&nbsp;l'on&nbsp;peut&nbsp;renvoyer</tt></dd></dl>
 
 <hr>
 Data descriptors defined here:<br>

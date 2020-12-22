@@ -45,11 +45,10 @@
 <font color="#000000" face="helvetica, arial"><a name="Item_RSS">class <strong>Item_RSS</strong></a>(<a href="builtins.html#object">builtins.object</a>)</font></td></tr>
     
 <tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
-<td colspan=2><tt><a href="#Item_RSS">Item_RSS</a>(post,&nbsp;feed,&nbsp;tool=None,&nbsp;type_flux='default',&nbsp;clean_source=0,&nbsp;classifier=None)<br>
-&nbsp;<br>
-Représente&nbsp;un&nbsp;item&nbsp;Rss&nbsp;obtenu&nbsp;depuis&nbsp;le&nbsp;flux.<br>
-&nbsp;<br>
-Attributs&nbsp;:<br>
+<td colspan=2><tt>Représente&nbsp;un&nbsp;item&nbsp;Rss&nbsp;obtenu&nbsp;depuis&nbsp;le&nbsp;flux.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Item_RSS-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Attributs&nbsp;:<br>
 id&nbsp;:&nbsp;L'identifiant&nbsp;de&nbsp;l'item&nbsp;Rss.&nbsp;Un&nbsp;hash&nbsp;de&nbsp;l'url&nbsp;de&nbsp;l'article&nbsp;que&nbsp;présente&nbsp;l'item&nbsp;Rss.<br>
 title&nbsp;:&nbsp;Le&nbsp;titre&nbsp;de&nbsp;l'item&nbsp;Rss.<br>
 summary&nbsp;:&nbsp;Un&nbsp;resumé&nbsp;de&nbsp;l'item&nbsp;Rss&nbsp;récupéré.<br>
@@ -61,10 +60,11 @@ local_url&nbsp;:&nbsp;L&nbsp;url&nbsp;du&nbsp;fichier&nbsp;local&nbsp;contenant&
 lang&nbsp;:&nbsp;La&nbsp;langue&nbsp;utilisé&nbsp;dans&nbsp;le&nbsp;texte&nbsp;de&nbsp;l'item&nbsp;Rss.<br>
 date&nbsp;:&nbsp;La&nbsp;date&nbsp;de&nbsp;l'item&nbsp;Rss.<br>
 target_data&nbsp;:&nbsp;Le&nbsp;contenu&nbsp;de&nbsp;la&nbsp;page&nbsp;source&nbsp;de&nbsp;l'item&nbsp;Rss.<br>
-type_flux&nbsp;:&nbsp;le&nbsp;type&nbsp;du&nbsp;flux&nbsp;Rss&nbsp;utilisé&nbsp;(ECONOMIE,&nbsp;SPORT,&nbsp;....).<br>&nbsp;</tt></td></tr>
-<tr><td>&nbsp;</td>
-<td width="100%">Methods defined here:<br>
-<dl><dt><a name="Item_RSS-__init__"><strong>__init__</strong></a>(self, post, feed, tool=None, type_flux='default', clean_source=0, classifier=None)</dt><dd><tt>Initialise&nbsp;l&nbsp;item&nbsp;rss&nbsp;a&nbsp;partir&nbsp;des&nbsp;données&nbsp;récupérés&nbsp;depuis&nbsp;le&nbsp;flux<br>
+type_flux&nbsp;:&nbsp;le&nbsp;type&nbsp;du&nbsp;flux&nbsp;Rss&nbsp;utilisé&nbsp;(ECONOMIE,&nbsp;SPORT,&nbsp;....).</tt></dd></dl>
+
+<dl><dt><a name="Item_RSS-affichage"><strong>affichage</strong></a>(self)</dt><dd><tt>Affiche&nbsp;tous&nbsp;les&nbsp;éléments&nbsp;de&nbsp;l'item&nbsp;Rss&nbsp;si&nbsp;ils&nbsp;ne&nbsp;sont&nbsp;pas&nbsp;vides</tt></dd></dl>
+
+<dl><dt><a name="Item_RSS-create_from_feed"><strong>create_from_feed</strong></a>(self, post, feed, tool=None, type_flux='default', clean_source=0, classifier=None)</dt><dd><tt>Initialise&nbsp;l&nbsp;item&nbsp;rss&nbsp;a&nbsp;partir&nbsp;des&nbsp;données&nbsp;récupérés&nbsp;depuis&nbsp;le&nbsp;flux<br>
 &nbsp;<br>
 Paramètres:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;post&nbsp;:&nbsp;L'item&nbsp;Rss&nbsp;recupéré&nbsp;depuis&nbsp;le&nbsp;flux.<br>
@@ -73,7 +73,7 @@ Paramètres:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;type_flux&nbsp;:&nbsp;le&nbsp;type&nbsp;de&nbsp;flux&nbsp;de&nbsp;l'item&nbsp;(ECO,POLITIQUE,SPORT,&nbsp;...).<br>
 &nbsp;&nbsp;&nbsp;&nbsp;clean_source=0&nbsp;:&nbsp;Valeur&nbsp;a&nbsp;1&nbsp;si&nbsp;la&nbsp;page&nbsp;web&nbsp;a&nbsp;besoin&nbsp;d'être&nbsp;néttoyer&nbsp;avant&nbsp;d'être&nbsp;sauvegarder.</tt></dd></dl>
 
-<dl><dt><a name="Item_RSS-affichage"><strong>affichage</strong></a>(self)</dt><dd><tt>Affiche&nbsp;tous&nbsp;les&nbsp;éléments&nbsp;de&nbsp;l'item&nbsp;Rss&nbsp;si&nbsp;ils&nbsp;ne&nbsp;sont&nbsp;pas&nbsp;vides</tt></dd></dl>
+<dl><dt><a name="Item_RSS-create_from_tool"><strong>create_from_tool</strong></a>(self, id_=None, title_=None, summary_=None, description_=None, all_links_=None, source_post_=None, source_feed_=None, lang_=None, date_=None, target_data_=None, type_flux_=None)</dt><dd><tt>Crée&nbsp;un&nbsp;item&nbsp;a&nbsp;partir&nbsp;des&nbsp;champs</tt></dd></dl>
 
 <dl><dt><a name="Item_RSS-integrity_construct"><strong>integrity_construct</strong></a>(self)</dt><dd><tt>Calcul&nbsp;le&nbsp;hash&nbsp;qui&nbsp;déterminera&nbsp;si&nbsp;un&nbsp;element&nbsp;à&nbsp;changé&nbsp;au&nbsp;court&nbsp;du&nbsp;temps</tt></dd></dl>
 
@@ -115,29 +115,5 @@ Data descriptors defined here:<br>
 <dl><dt><strong>__weakref__</strong></dt>
 <dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
 </dl>
-<hr>
-Data and other attributes defined here:<br>
-<dl><dt><strong>all_links</strong> = None</dl>
-
-<dl><dt><strong>date</strong> = None</dl>
-
-<dl><dt><strong>description</strong> = None</dl>
-
-<dl><dt><strong>id</strong> = None</dl>
-
-<dl><dt><strong>lang</strong> = None</dl>
-
-<dl><dt><strong>source_feed</strong> = None</dl>
-
-<dl><dt><strong>source_post</strong> = None</dl>
-
-<dl><dt><strong>summary</strong> = None</dl>
-
-<dl><dt><strong>target_data</strong> = None</dl>
-
-<dl><dt><strong>title</strong> = None</dl>
-
-<dl><dt><strong>type_flux</strong> = None</dl>
-
 </td></tr></table></td></tr></table>
 </body></html>

@@ -1,4 +1,5 @@
 from elasticsearch import Elasticsearch
+from src.item_rss import Item_RSS
 import numpy as np
 
 class ElasticTool:
@@ -290,31 +291,63 @@ class ElasticTool:
 #================================== Version avec tout dans 1 index ===============================
 class ElasticToolv0 :
 
+    """
+    Outil de sauvegarde dans une base ElasticSearch avec tout dans 1 index
+    Attributs:
+    _es : La connexion a la base ElasticSearch
+    """
     _es = None
     
     def __init__(self):
+        """
+        Initialiseur de la class ElasticTool. Fait la connexion avec ElasticSearch et ajoute tous les index necessaires.
+        """
         self._es = self.getConnection()
         self.add_index()
 
     def getConnection(self, _host = 'localhost', _port=9200):
+        """
+        Etablit une connexion avec ElasticSearch
+
+        Paramètres:
+        _host='localhost' : l'adresse ou se trouve ElasticSearch
+        _port=9200 : Le port sur lequel on accede à ElasticSearch
+
+        Retourne la connexion
+        """
         if self._es == None :
             self._es = Elasticsearch([{'host': _host, 'port': _port}])
         return self._es
 
     def affichage_etat(self):
+        """
+        Affiche l'état d'ElasticSearch a savoir si il est lancé ou non
+        """
         if self._es.ping() :
             print('ElasticSearch Tourne')
         else :
             print('ElasticSearch ne tourne pas')
 
     def add_index(self):
+        """
+        Ajoute l index nécessaire au fonctionnement des modules
+        """
         if self._es.indices.exists(index='item'):
             self._es.indices.create(index='item', ignore=400)
 
     def delete_index(self):
+        """
+        Supprime l index nécessaire au fonctionnement des modules
+        """
         self._es.indices.delete(index='item', ignore=[400, 404])
 
     def insertion_item(self, _item) :
+        """
+        Insère l item Rss dans ElasticSearch
+
+        Paramètres:
+        _items : L objet Item_RSS à ajouter
+        """
         content_body = {
             'title' : _item.title,
             'summary' : _item.summary,
@@ -326,13 +359,20 @@ class ElasticToolv0 :
             'date' : _item.date,
             'target_data' :  _item.target_data,
             'type_flux' : _item.type_flux,
-            'type_predit' : _item.type_predit,
-            'tags' : np.append(_item.description.split(' '), _item.summary.split(' '),_item.title.split(' '), _item.target_data.split(' '))
+            'type_predit' : _item.type_predit #,
+            #'tags' : np.append(_item.description.split(' '), _item.summary.split(' '),_item.title.split(' '), _item.target_data.split(' '))
         }
         return self._es.index(index='item', id=_item.id, body=content_body)
 
     def search_by_tags(self, tags, size_result=999):
+        """
+        Plus utilisé mais a la base il servait a faire une recherche par mot dans le texte de la page html
+        pour utilisé il faudrait décommenter la ligne dans insertion_item prevut a cet effet et la modifier un peu
         
+        Paramètres:
+        tags : Un tableau ddes differents tags a chercher
+        size_result : Le nombre d'item max que l'on peut renvoyer
+        """
         str_query = ''
         maxi = len(tags)
         for i in range(maxi):
@@ -348,3 +388,56 @@ class ElasticToolv0 :
             }
         }
         return self._es.search(index='item', body=query_body, size=size_result)['hits']['hits']
+
+    def get_all_element_lang(self, lang='fr', size_result=9999):
+        """
+        Retourne tous les éléments d'une langue donné 
+
+        Paramètres:
+        lang : La langue dont on doit trouver les éléments
+        size_result : Le nombre d'item max que l'on peut renvoyer
+        """
+        str_query = 'lang:' + lang
+                
+        query_body ={
+            "query": {
+                "query_string": {
+                    "query" : str_query
+                }
+            }
+        }
+        results = self._es.search(index='item', body=query_body, size=size_result)['hits']['hits']
+        list_item = []
+        for result in results:
+            data = result['_source']
+            item = Item_RSS()
+            item.create_from_tool(id_ = result['_id'], title_ = data['title'], summary_ = data['summary'], description_ = data['description'], all_links_ = data['all_links'], source_post_ = data['source_post'], source_feed_ = data['source_feed'], lang_ = data['lang'], date_ = data['date'], target_data_ = data['target_data'], type_flux_ = data['type_flux'])
+            list_item.append(item)
+        return list_item
+        #return self._es.search(index='item', body=query_body, size=size_result)['hits']['hits']
+    
+    def search(self, str_query, size_result=999):
+        """
+        Retourne tous les éléments d'une langue donné 
+
+        Paramètres:
+        str_query : La requete à éxécuter sur ElasticSearch
+        size_result : Le nombre d'item max que l'on peut renvoyer
+
+        Retourne une liste d'item rss
+        """
+        query_body = {
+            "query": {
+                "query_string": {
+                    "query": str_query
+                }
+            }
+        }
+        results = self._es.search(index='item', body=query_body, size=size_result)['hits']['hits']
+        list_item = []
+        for result in results:
+            data = result['_source']
+            item = Item_RSS()
+            item.create_from_tool(id_ = result['_id'], title_ = data['title'], summary_ = data['summary'], description_ = data['description'], all_links_ = data['all_links'], source_post_ = data['source_post'], source_feed_ = data['source_feed'], lang_ = data['lang'], date_ = data['date'], target_data_ = data['target_data'], type_flux_ = data['type_flux'])
+            list_item.append(item)
+        return list_item
