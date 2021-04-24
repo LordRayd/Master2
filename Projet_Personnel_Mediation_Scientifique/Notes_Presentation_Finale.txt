@@ -1,0 +1,30 @@
+utilisation de Flutter
+LGO Info
+    utilisation d'un autre flux
+    redirection exemple
+Carte
+    Par défaut a vannes ou sur notre position si activer
+    changement de Fond
+    Slider explication
+    Montrer Hotspot
+Hotspot
+    Fav hotspot
+    defilement photos et clique Fav
+    montrer les tags
+    bouton y aller
+Miscelaneous
+Recompenses
+    Chaque recompense est pour l'instant lié a un quiz
+    image avec par dessus une coupe (bronze argent or)
+    DOnt on peut avoir une pres plus précise
+Fav Picture
+    Ouvrir image
+Fav hotspot
+    Ouvrir Hotspot
+quiz
+    fogeo
+        1
+        1
+        2
+        3
+retourne recompenses
